@@ -1,5 +1,5 @@
 body {
-  background-image: url("../icons/images/background.jpg");
+  background-image: url("../icons/images/Background_Yellow.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -8,7 +8,7 @@ body {
 
 /* Alternative method using shorthand */
 .bg-container {
-  background: url("../icons/images/background.jpg") no-repeat center center
-    fixed;
+  background: url("../icons/images/Background_Yellow.png") no-repeat center
+    center fixed;
   background-size: cover;
 }
