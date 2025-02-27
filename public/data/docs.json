@@ -1,0 +1,54 @@
+[
+  {
+    "id": "basics",
+    "title": "React Basics",
+    "description": "Fundamental concepts for getting started with React",
+    "icon": "📚",
+    "articles": [
+      {
+        "id": "what-is-react",
+        "title": "What is React?",
+        "description": "An introduction to React and its core concepts",
+        "fileName": "what-is-react.md"
+      },
+      {
+        "id": "components",
+        "title": "Components & Props",
+        "description": "Understanding React components and how to pass data",
+        "fileName": "components-and-props.md"
+      },
+      {
+        "id": "state-and-lifecycle",
+        "title": "State & Lifecycle",
+        "description": "Working with state and component lifecycle",
+        "fileName": "state-and-lifecycle.md"
+      }
+    ]
+  },
+  {
+    "id": "hooks",
+    "title": "React Hooks",
+    "description": "Modern React with hooks and functional components",
+    "icon": "🎣",
+    "articles": [
+      {
+        "id": "intro-to-hooks",
+        "title": "Introduction to Hooks",
+        "description": "Why hooks were created and their benefits",
+        "fileName": "intro-to-hooks.md"
+      },
+      {
+        "id": "useState-explained",
+        "title": "useState Explained",
+        "description": "Managing state in function components",
+        "fileName": "usestate-explained.md"
+      },
+      {
+        "id": "useEffect-explained",
+        "title": "useEffect Explained",
+        "description": "Handling side effects in React",
+        "fileName": "useeffect-explained.md"
+      }
+    ]
+  }
+]
