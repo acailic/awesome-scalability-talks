@@ -8,20 +8,20 @@ const ContentContainer = styled.div`
 `;
 
 const ArticleTitle = styled.h1`
-  color: ${({ theme }) => theme.colors.heading};
+  color: #222;
   font-size: 2rem;
-  margin-bottom: ${({ theme }) => theme.spacing.md};
+  margin-bottom: 1rem;
 `;
 
 const ArticleAuthor = styled.p`
-  color: ${({ theme }) => theme.colors.text};
+  color: #333;
   font-style: italic;
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: 1.5rem;
 `;
 
 const ArticleText = styled.div`
   line-height: 1.6;
-  color: ${({ theme }) => theme.colors.text};
+  color: #333;
 `;
 
 const EmptyState = styled.div`
@@ -30,7 +30,7 @@ const EmptyState = styled.div`
   align-items: center;
   height: 300px;
   font-size: 1.2rem;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: #2ecc71;
 `;
 
 interface ArticleContentProps {

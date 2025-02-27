@@ -8,15 +8,15 @@ const LayoutContainer = styled.div`
 
 const Sidebar = styled.aside`
   width: 300px;
-  background-color: ${({ theme }) => theme.colors.navBackground};
-  border-right: 1px solid ${({ theme }) => theme.colors.border};
-  padding: ${({ theme }) => theme.spacing.md};
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  padding: 1rem;
   overflow-y: auto;
 `;
 
 const Content = styled.main`
   flex: 1;
-  padding: ${({ theme }) => theme.spacing.lg};
+  padding: 1.5rem;
   overflow-y: auto;
 `;
 

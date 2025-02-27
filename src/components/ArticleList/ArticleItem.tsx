@@ -2,25 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ArticleItemContainer = styled.div<{ isSelected: boolean }>`
-  padding: ${({ theme }) => theme.spacing.md};
-  margin-bottom: ${({ theme }) => theme.spacing.sm};
-  border-radius: ${({ theme }) => theme.borderRadius.medium};
-  background-color: ${({ isSelected, theme }) =>
-    isSelected ? theme.colors.primary : theme.colors.card};
-  color: ${({ isSelected, theme }) =>
-    isSelected ? '#fff' : theme.colors.text};
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  background-color: ${({ isSelected }) =>
+    isSelected ? '#3498db' : '#ffffff'};
+  color: ${({ isSelected }) =>
+    isSelected ? '#fff' : '#333'};
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: ${({ isSelected, theme }) =>
-      isSelected ? theme.colors.primary : theme.colors.buttonHover};
+    background-color: ${({ isSelected }) =>
+      isSelected ? '#3498db' : '#2980b9'};
     color: #fff;
   }
 `;
 
 const Title = styled.h3`
-  margin: 0 0 ${({ theme }) => theme.spacing.xs} 0;
+  margin: 0 0 0.25rem 0;
   font-size: 1rem;
 `;
 

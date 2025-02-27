@@ -2,26 +2,23 @@ import "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
+    colors: {
+      primary: string;
+      secondary: string;
+      tertiary: string;
+      background: string;
+      text: string;
+      heading: string;
+      card: string;
+      border: string;
+      navBackground: string;
+      buttonHover: string;
+    };
     breakpoints: {
-      xs: string;
       sm: string;
       md: string;
       lg: string;
       xl: string;
-      xxl: string;
-    };
-    colors: {
-      primary: string;
-      secondary: string;
-      background: string;
-      text: string;
-      lightText: string;
-      card: string;
-      buttonHover: string;
-      border: string;
-      tertiary: string;
-      navBackground: string;
-      shadow: string;
     };
     spacing: {
       xs: string;
@@ -30,6 +27,17 @@ declare module "styled-components" {
       lg: string;
       xl: string;
       xxl: string;
+    };
+    borderRadius: {
+      small: string;
+      medium: string;
+      large: string;
+      pill: string;
+    };
+    shadows: {
+      small: string;
+      medium: string;
+      large: string;
     };
   }
 }

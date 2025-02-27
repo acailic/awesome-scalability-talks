@@ -11,23 +11,23 @@ interface VideoGridProps {
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: ${props => props.theme.spacing.lg};
+  gap: 1.5rem;
 
-  @media (max-width: ${props => props.theme.breakpoints.xl}) {
+  @media (max-width: 1200px) {
     // Your media query styles
   }
-  margin: ${({ theme }) => theme.spacing.xl} 0;
+  margin: 2rem 0;
 `;
 
 const GridTitle = styled.h2`
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: 1.5rem;
   font-size: 1.8rem;
 `;
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: ${({ theme }) => theme.spacing.xl};
+  gap: 2rem;
 `;
 
 const VideoGrid: React.FC<VideoGridProps> = ({ videos, title }) => {

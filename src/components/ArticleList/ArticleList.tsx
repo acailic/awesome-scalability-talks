@@ -8,8 +8,8 @@ const ListContainer = styled.div`
 `;
 
 const ListTitle = styled.h2`
-  margin: ${({ theme }) => theme.spacing.md} 0;
-  color: ${({ theme }) => theme.colors.heading};
+  margin: 1rem 0;
+  color: #222;
 `;
 
 interface ArticleListProps {
