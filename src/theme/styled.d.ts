@@ -1,24 +1,16 @@
-import 'styled-components';
+import "styled-components";
 
-declare module 'styled-components' {
+declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
       primary: string;
       secondary: string;
       background: string;
-      text: string;
-      heading: string;
-      card: string;
-      border: string;
       navBackground: string;
+      card: string;
+      text: string;
+      border: string;
       buttonHover: string;
-      tertiary: string;
-    };
-    breakpoints: {
-      sm: string;
-      md: string;
-      lg: string;
-      xl: string;
     };
     spacing: {
       xs: string;
@@ -38,6 +30,13 @@ declare module 'styled-components' {
       small: string;
       medium: string;
       large: string;
+    };
+    breakpoints: {
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
     };
   }
 }

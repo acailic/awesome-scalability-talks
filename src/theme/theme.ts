@@ -68,34 +68,44 @@ export const darkTheme = {
 
 export const theme = {
   colors: {
-    primary: '#007bff',
-    secondary: '#6c757d',
-    background: '#ffffff',
-    navBackground: '#f5f5f5',
-    card: '#ffffff',
-    text: '#333333',
-    border: '#e0e0e0',
-    buttonHover: '#0056b3'
+    primary: "#3498db",
+    secondary: "#2ecc71",
+    background: "#f8f9fa",
+    text: "#333",
+    heading: "#222",
+    card: "#ffffff",
+    border: "#e0e0e0",
+    navBackground: "#ffffff",
+    buttonHover: "#2980b9",
+    tertiary: "#9b59b6",
+  },
+  breakpoints: {
+    xs: "320px",
+    sm: "576px",
+    md: "768px",
+    lg: "992px",
+    xl: "1200px",
   },
   spacing: {
-    xs: '0.25rem',
-    sm: '0.5rem',
-    md: '1rem',
-    lg: '1.5rem',
-    xl: '2rem',
-    xxl: '3rem'
+    xs: "0.25rem",
+    sm: "0.5rem",
+    md: "1rem",
+    lg: "1.5rem",
+    xl: "2rem",
+    xxl: "3rem",
   },
+  // Add missing properties
   borderRadius: {
-    small: '4px',
-    medium: '8px',
-    large: '12px',
-    pill: '50px'
+    small: "4px",
+    medium: "8px",
+    large: "12px",
+    pill: "999px",
   },
   shadows: {
-    small: '0 2px 8px rgba(0, 0, 0, 0.1)',
-    medium: '0 4px 12px rgba(0, 0, 0, 0.15)',
-    large: '0 8px 24px rgba(0, 0, 0, 0.2)'
-  }
+    small: "0 1px 3px rgba(0,0,0,0.12)",
+    medium: "0 4px 6px rgba(0,0,0,0.1)",
+    large: "0 10px 15px rgba(0,0,0,0.1)",
+  },
 };
 
 export type Theme = typeof theme;

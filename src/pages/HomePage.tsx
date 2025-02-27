@@ -1,189 +1,86 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import VideoGrid from '../components/VideoGrid';
-import SummaryCard from '../components/SummaryCard';
-import { videos } from '../data/videos';
-import { Summary } from '../types';
-import { fetchSummaries } from '../services/dataService';
-import '../styles/HomePage.css';
+import React, { useState } from 'react';
+import Layout from '../components/Layout/Layout';
+import ArticleList from '../components/ArticleList/ArticleList';
+import ArticleContent from '../components/ArticleContent/ArticleContent';
+import { Article } from '../components/ArticleList/ArticleItem';
 
-const Hero = styled.section`
-  padding: ${props => props.theme?.spacing?.xxl || '3rem'} 0;
-  text-align: center;
-  background-color: ${props => props.theme?.colors?.navBackground || '#f5f5f5'};
-  border-bottom: 2px solid ${props => props.theme?.colors?.border || '#e0e0e0'};
-`;
-
-const HeroTitle = styled.h1`
-  font-size: 3rem;
-  margin-bottom: ${props => props.theme?.spacing?.md || '1rem'};
-
-  span {
-    color: ${props => props.theme?.colors?.primary || '#007bff'};
+// Sample data - replace with your actual data or API call
+const sampleArticles: Article[] = [
+  {
+    id: '1',
+    title: 'Scaling Databases with Sharding',
+    author: 'Jane Smith',
+    content: `<p>Database sharding is a technique used to horizontally partition data across multiple databases to improve scalability.</p>
+              <p>When your application reaches a certain scale, a single database instance might not be sufficient to handle the load. Sharding helps distribute the load across multiple database instances.</p>
+              <p>Key considerations when sharding include:</p>
+              <ul>
+                <li>Choosing the right sharding key</li>
+                <li>Handling cross-shard queries</li>
+                <li>Managing data migration between shards</li>
+                <li>Ensuring consistent backup and recovery processes</li>
+              </ul>`
+  },
+  {
+    id: '2',
+    title: 'Microservices Architecture',
+    author: 'John Doe',
+    content: `<p>Microservices architecture is an approach to building applications as a collection of small, independently deployable services.</p>
+              <p>Unlike monolithic architectures, microservices allow teams to develop, deploy, and scale services independently. This provides greater flexibility and resilience.</p>
+              <p>Benefits include:</p>
+              <ul>
+                <li>Independent scaling of services</li>
+                <li>Technology diversity</li>
+                <li>Resilience to failure</li>
+                <li>Easier continuous deployment</li>
+              </ul>`
+  },
+  {
+    id: '3',
+    title: 'Load Balancing Strategies',
+    author: 'Alex Chen',
+    content: `<p>Load balancing is the process of distributing network traffic across multiple servers to ensure no single server bears too much load.</p>
+              <p>Common load balancing algorithms include:</p>
+              <ul>
+                <li>Round Robin - Distributes requests sequentially across the server group</li>
+                <li>Least Connections - Directs traffic to the server with the fewest active connections</li>
+                <li>IP Hash - Uses the client's IP address to determine which server receives the request</li>
+                <li>Weighted Round Robin - Allows some servers to handle more requests than others</li>
+              </ul>`
+  },
+  {
+    id: '4',
+    title: 'Caching Strategies for Web Applications',
+    author: 'Maria Garcia',
+    content: `<p>Caching is a technique used to store copies of data or computed results for future requests, reducing load on servers and improving response times.</p>
+              <p>Different caching levels include:</p>
+              <ul>
+                <li>Browser caching</li>
+                <li>CDN caching</li>
+                <li>Application caching</li>
+                <li>Database caching</li>
+              </ul>
+              <p>Effective cache invalidation is crucial to ensure users receive current data while maximizing the benefits of caching.</p>`
   }
-`;
-
-const HeroSubtitle = styled.p`
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto ${props => props.theme?.spacing?.xl || '2rem'};
-`;
-
-const HeroActions = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: ${props => props.theme?.spacing?.lg || '1.5rem'};
-`;
-
-const PrimaryButton = styled(Link)`
-  background-color: ${props => props.theme?.colors?.primary || '#007bff'};
-  color: white;
-  padding: ${props => props.theme?.spacing?.md || '1rem'} ${props => props.theme?.spacing?.xl || '2rem'};
-  border-radius: 50px; // Using a fixed value instead of theme.borderRadius.pill
-  font-weight: 700;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: ${props => props.theme?.colors?.buttonHover || '#0056b3'};
-    color: white;
-  }
-`;
-
-const SecondaryButton = styled(Link)`
-  background-color: transparent;
-  color: ${props => props.theme?.colors?.secondary || '#6c757d'};
-  border: 2px solid ${props => props.theme?.colors?.secondary || '#6c757d'};
-  padding: ${props => props.theme?.spacing?.md || '1rem'} ${props => props.theme?.spacing?.xl || '2rem'};
-  border-radius: 50px; // Using a fixed value instead of theme.borderRadius.pill
-  font-weight: 700;
-  transition: all 0.2s;
-
-  &:hover {
-    background-color: ${props => props.theme?.colors?.secondary || '#6c757d'};
-    color: white;
-  }
-`;
-
-const FeaturesSection = styled.section`
-  padding: ${props => props.theme?.spacing?.xxl || '3rem'} 0;
-`;
-
-const FeatureGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: ${props => props.theme?.spacing?.xl || '2rem'};
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 ${props => props.theme?.spacing?.lg || '1.5rem'};
-`;
-
-const FeatureCard = styled.div`
-  background-color: ${props => props.theme?.colors?.card || '#ffffff'};
-  padding: ${props => props.theme?.spacing?.xl || '2rem'};
-  border-radius: 8px; // Using a fixed value instead of theme.borderRadius.medium
-  box-shadow: ${props => props.theme?.shadows?.small || '0 2px 8px rgba(0, 0, 0, 0.1)'};
-  text-align: center;
-
-  h3 {
-    margin-bottom: ${props => props.theme?.spacing?.md || '1rem'};
-  }
-`;
+];
 
 const HomePage: React.FC = () => {
-  const [summaries, setSummaries] = useState<Summary[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState('');
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
-  useEffect(() => {
-    const loadSummaries = async () => {
-      try {
-        const data = await fetchSummaries();
-        setSummaries(data);
-      } catch (error) {
-        console.error('Failed to fetch summaries:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadSummaries();
-  }, []);
-
-  const filteredSummaries = filter
-    ? summaries.filter(summary =>
-        summary.title.toLowerCase().includes(filter.toLowerCase()) ||
-        summary.tags.some(tag => tag.toLowerCase().includes(filter.toLowerCase())))
-    : summaries;
-
-  const featuredVideos = videos.filter(video => video.featured);
+  const handleArticleSelect = (article: Article) => {
+    setSelectedArticle(article);
+  };
 
   return (
-    <main>
-      <Hero>
-        <div className="container">
-          <HeroTitle>
-            Welcome to <span>CozyTube</span> Summaries
-          </HeroTitle>
-          <HeroSubtitle>
-            Your cozy corner for YouTube video summaries on tech topics. Learn and discover without spending hours watching videos.
-          </HeroSubtitle>
-          <HeroActions>
-            <PrimaryButton to="/videos">Browse Videos</PrimaryButton>
-            <SecondaryButton to="/docs">React Learning</SecondaryButton>
-          </HeroActions>
-        </div>
-      </Hero>
-
-      <div className="container">
-        <VideoGrid videos={featuredVideos} title="Featured Videos" />
-
-        <FeaturesSection>
-          <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Why CozyTube?</h2>
-          <FeatureGrid>
-            <FeatureCard>
-              <h3>Save Time</h3>
-              <p>Get the key insights from tech videos without watching the entire content.</p>
-            </FeatureCard>
-            <FeatureCard>
-              <h3>Learn React</h3>
-              <p>Use this app as a learning resource for React, TypeScript, and modern web development.</p>
-            </FeatureCard>
-            <FeatureCard>
-              <h3>Cozy Experience</h3>
-              <p>Enjoy our unique, cartoonish design that makes learning more fun and approachable.</p>
-            </FeatureCard>
-          </FeatureGrid>
-        </FeaturesSection>
-      </div>
-
-      <div className="home-page">
-        <div className="hero">
-          <h1>Cozy React Learning Hub</h1>
-          <p>Discover tutorials, gain insights, and learn React in a fun, cozy way!</p>
-          <div className="search">
-            <input
-              type="text"
-              placeholder="Search summaries..."
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-            />
-          </div>
-        </div>
-
-        <div className="summaries-container">
-          {loading ? (
-            <div className="loading">Loading summaries...</div>
-          ) : filteredSummaries.length > 0 ? (
-            filteredSummaries.map(summary => (
-              <SummaryCard key={summary.id} summary={summary} />
-            ))
-          ) : (
-            <div className="no-results">No summaries found matching your search.</div>
-          )}
-        </div>
-      </div>
-    </main>
+    <Layout
+      sidebar={
+        <ArticleList
+          articles={sampleArticles}
+          selectedArticleId={selectedArticle?.id || null}
+          onArticleSelect={handleArticleSelect}
+        />
+      }
+      content={<ArticleContent article={selectedArticle} />}
+    />
   );
 };
 
