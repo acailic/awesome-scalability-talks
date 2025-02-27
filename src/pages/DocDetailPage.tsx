@@ -26,16 +26,12 @@ const DocDetailPage: React.FC = () => {
 
         // Mock data
         const mockDoc = {
-          id,
-          title: id === '1' ? 'Scalable System Architecture' :
-                id === '2' ? 'Database Sharding Techniques' : 'Load Balancing Strategies',
-          category: id === '1' ? 'architecture' :
-                   id === '2' ? 'database' : 'infrastructure',
-          content: `This is a detailed documentation about ${id === '1' ? 'scalable system architecture' :
-                   id === '2' ? 'database sharding techniques' : 'load balancing strategies'}.
-                   This would include comprehensive information, code examples, diagrams, and best practices.`,
-          author: 'Tech Team',
-          lastUpdated: '2023-10-15'
+          id: id || 'default-id', // Provide a default value if id is undefined
+          title: `Document ${id}`,
+          category: 'Documentation',
+          content: '# Sample Content\n\nThis is a sample document content.',
+          author: 'System',
+          lastUpdated: new Date().toISOString()
         };
 
         setDoc(mockDoc);

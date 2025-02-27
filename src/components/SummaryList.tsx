@@ -12,7 +12,7 @@ const SummaryList: React.FC = () => {
   });
 
   const availableCategories = Object.values(VideoCategory);
-  const availableTags = [...new Set(summaries.flatMap(summary => summary.tags))];
+  const availableTags = Array.from(new Set(summaries.flatMap(summary => summary.tags)));
 
   const filteredSummaries = summaries.filter(summary => {
     // Filter by category

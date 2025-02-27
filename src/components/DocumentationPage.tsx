@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import '../styles/DocumentationPage.css';
 
-type DocSection = {
+interface DocSection {
   id: string;
   title: string;
-  content: JSX.Element;
+  content: React.ReactNode;
 };
 
-const DocumentationPage: React.FC = () => {
+const DocumentationPage: React.FC<{}> = () => {
   const [activeSection, setActiveSection] = useState<string>('intro');
 
   const sections: DocSection[] = [
@@ -476,8 +476,37 @@ export default UserProfile;`}
           <h2>React & TypeScript Interview Questions</h2>
 
           <div className="question">
-            <h3>Q1: What are the differences between functional and class components in React?</h3>
-            <div className="answer">
-              <p><strong>Answer:</strong></p>
-              <ul>
-                <li><strong
+            <h3>What is React?</h3>
+            <p>React is a JavaScript library for building user interfaces, developed by Facebook. It allows developers to create reusable UI components and efficiently update the DOM using a virtual DOM approach.</p>
+          </div>
+
+          {/* Add rest of interview question content */}
+
+        </div>
+      )
+    },
+  ];
+
+  return (
+    <div className="documentation-page">
+      <nav className="sidebar">
+        <ul>
+          {sections.map(section => (
+            <li
+              key={section.id}
+              className={activeSection === section.id ? 'active' : ''}
+              onClick={() => setActiveSection(section.id)}
+            >
+              {section.title}
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div className="content">
+        {sections.find(section => section.id === activeSection)?.content}
+      </div>
+    </div>
+  );
+};
+
+export default DocumentationPage;
