@@ -3,8 +3,8 @@ import {
   LeafIcon,
   FlowerIcon,
   StarIcon,
-  BookIcon
-} from './components';
+  BookIcon,
+} from "./components";
 
 // Export SVG icon components instead of PNG files
 export const Icons = {

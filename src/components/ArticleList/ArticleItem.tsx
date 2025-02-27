@@ -39,8 +39,10 @@ const ContentWrapper = styled.div`
 
 const Title = styled.h3`
   margin: 0 0 0.25rem 0;
-  font-size: 1rem;
-  font-family: 'Mochiy Pop One', sans-serif;
+  font-size: 1.1rem;
+  font-family: 'Gluten', cursive;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 `;
 
 const Author = styled.p`

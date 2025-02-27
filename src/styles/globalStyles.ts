@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Varela+Round&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@300;400;500;600;700&family=Varela+Round&display=swap');
 
   body {
     font-family: 'Varela Round', sans-serif;
@@ -11,7 +11,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Mochiy Pop One', sans-serif;
+    font-family: 'Gluten', cursive;
+    font-weight: 500;
   }
 `;
 
