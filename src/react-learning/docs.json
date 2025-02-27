@@ -1,0 +1,58 @@
+{
+  "sections": [
+    {
+      "id": "react-learning",
+      "title": "React Learning Path",
+      "description": "A comprehensive guide to mastering React, from basics to advanced concepts.",
+      "items": [
+        {
+          "id": "react-introduction",
+          "title": "Introduction to React",
+          "fileName": "01-introduction.md",
+          "description": "Learn the fundamentals of React, Virtual DOM, and its component-based philosophy",
+          "tags": ["react", "javascript", "frontend", "basics"]
+        },
+        {
+          "id": "react-fundamentals",
+          "title": "React Fundamentals",
+          "fileName": "02-fundamentals.md",
+          "description": "Explore components, JSX, props, state, events, and conditional rendering in React",
+          "tags": ["react", "components", "jsx", "props", "state"]
+        },
+        {
+          "id": "react-hooks",
+          "title": "React Hooks",
+          "fileName": "03-hooks.md",
+          "description": "Master React hooks including useState, useEffect, useContext, useReducer, and custom hooks",
+          "tags": ["react", "hooks", "useState", "useEffect", "functional"]
+        },
+        {
+          "id": "react-lifecycle",
+          "title": "Component Lifecycle and Rendering",
+          "fileName": "04-lifecycle-rendering.md",
+          "description": "Understand component lifecycle, rendering process, and optimization techniques",
+          "tags": [
+            "react",
+            "lifecycle",
+            "rendering",
+            "optimization",
+            "performance"
+          ]
+        },
+        {
+          "id": "react-state-management",
+          "title": "State Management in React",
+          "fileName": "05-state-management.md",
+          "description": "Learn various state management approaches from local state to Redux and server state",
+          "tags": [
+            "react",
+            "state management",
+            "redux",
+            "context",
+            "data fetching"
+          ]
+        }
+      ]
+    }
+  ]
+}

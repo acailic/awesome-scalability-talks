@@ -51,6 +51,7 @@ export interface DocSection {
   id: string;
   title: string;
   description: string;
+  tags: string[];
   icon: string;
   articles: DocArticle[];
 }

@@ -1,90 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/DocsPage.css';
-
-interface Doc {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-}
+import { fetchDocSections, DocSection } from '../services/dataService';
 
 const DocsPage: React.FC = () => {
-  const [docs, setDocs] = useState<Doc[]>([]);
+  const [sections, setSections] = useState<DocSection[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [filter, setFilter] = useState<string>('all');
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // In a real application, this would fetch data from an API
-    const fetchDocs = async () => {
+    const loadSections = async () => {
       try {
-        // Placeholder for API call
-        // const response = await fetch('/api/docs');
-        // const data = await response.json();
+        setLoading(true);
+        setError(null);
 
-        // Mock data
-        const mockDocs = [
-          { id: '1', title: 'Scalable System Architecture', category: 'architecture', description: 'Principles of building scalable systems' },
-          { id: '2', title: 'Database Sharding Techniques', category: 'database', description: 'Methods for horizontally partitioning data' },
-          { id: '3', title: 'Load Balancing Strategies', category: 'infrastructure', description: 'Different approaches to load balancing' },
-        ];
-
-        setDocs(mockDocs);
-        setLoading(false);
+        const sectionsData = await fetchDocSections();
+        setSections(sectionsData);
       } catch (error) {
-        console.error('Error fetching documentation:', error);
+        console.error('Error loading doc sections:', error);
+        setError('Failed to load documentation sections. Please try again later.');
+      } finally {
         setLoading(false);
       }
     };
 
-    fetchDocs();
+    loadSections();
   }, []);
 
-  const filteredDocs = filter === 'all'
-    ? docs
-    : docs.filter(doc => doc.category === filter);
-
   return (
-    <div className="docs-container">
+    <div className="docs-page">
       <h1>Documentation</h1>
 
-      <div className="filter-controls">
-        <button
-          className={filter === 'all' ? 'active' : ''}
-          onClick={() => setFilter('all')}
-        >
-          All
-        </button>
-        <button
-          className={filter === 'architecture' ? 'active' : ''}
-          onClick={() => setFilter('architecture')}
-        >
-          Architecture
-        </button>
-        <button
-          className={filter === 'database' ? 'active' : ''}
-          onClick={() => setFilter('database')}
-        >
-          Database
-        </button>
-        <button
-          className={filter === 'infrastructure' ? 'active' : ''}
-          onClick={() => setFilter('infrastructure')}
-        >
-          Infrastructure
-        </button>
-      </div>
-
       {loading ? (
-        <p>Loading documentation...</p>
+        <div className="loading-indicator">Loading documentation...</div>
+      ) : error ? (
+        <div className="error-message">
+          <h3>Error</h3>
+          <p>{error}</p>
+          <button onClick={() => window.location.reload()}>Try Again</button>
+        </div>
+      ) : sections.length === 0 ? (
+        <div className="no-docs-message">
+          <p>No documentation available at the moment.</p>
+        </div>
       ) : (
-        <div className="docs-grid">
-          {filteredDocs.map(doc => (
-            <div key={doc.id} className="doc-card">
-              <h3>{doc.title}</h3>
-              <p>{doc.description}</p>
-              <Link to={`/docs/${doc.id}`} className="view-doc-btn">
-                Read More
+        <div className="docs-sections">
+          {sections.map(section => (
+            <div key={section.id} className="docs-section">
+              <h2>{section.title}</h2>
+              {section.description && <p className="section-description">{section.description}</p>}
+              <Link to={`/docs/${section.id}`} className="section-link">
+                Browse {section.title} Docs
               </Link>
             </div>
           ))}
