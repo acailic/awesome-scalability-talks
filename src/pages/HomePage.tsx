@@ -9,84 +9,84 @@ import { fetchSummaries } from '../services/dataService';
 import '../styles/HomePage.css';
 
 const Hero = styled.section`
-  padding: ${props => props.theme.spacing.xxl} 0;
+  padding: ${props => props.theme?.spacing?.xxl || '3rem'} 0;
   text-align: center;
-  background-color: ${props => props.theme.colors.navBackground};
-  border-bottom: 2px solid ${props => props.theme.colors.border};
+  background-color: ${props => props.theme?.colors?.navBackground || '#f5f5f5'};
+  border-bottom: 2px solid ${props => props.theme?.colors?.border || '#e0e0e0'};
 `;
 
 const HeroTitle = styled.h1`
   font-size: 3rem;
-  margin-bottom: ${props => props.theme.spacing.md};
+  margin-bottom: ${props => props.theme?.spacing?.md || '1rem'};
 
   span {
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme?.colors?.primary || '#007bff'};
   }
 `;
 
 const HeroSubtitle = styled.p`
   font-size: 1.2rem;
   max-width: 600px;
-  margin: 0 auto ${props => props.theme.spacing.xl};
+  margin: 0 auto ${props => props.theme?.spacing?.xl || '2rem'};
 `;
 
 const HeroActions = styled.div`
   display: flex;
   justify-content: center;
-  gap: ${props => props.theme.spacing.lg};
+  gap: ${props => props.theme?.spacing?.lg || '1.5rem'};
 `;
 
 const PrimaryButton = styled(Link)`
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme?.colors?.primary || '#007bff'};
   color: white;
-  padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.xl};
-  border-radius: ${props => props.theme.borderRadius.pill};
+  padding: ${props => props.theme?.spacing?.md || '1rem'} ${props => props.theme?.spacing?.xl || '2rem'};
+  border-radius: 50px; // Using a fixed value instead of theme.borderRadius.pill
   font-weight: 700;
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: ${props => props.theme.colors.buttonHover};
+    background-color: ${props => props.theme?.colors?.buttonHover || '#0056b3'};
     color: white;
   }
 `;
 
 const SecondaryButton = styled(Link)`
   background-color: transparent;
-  color: ${props => props.theme.colors.secondary};
-  border: 2px solid ${props => props.theme.colors.secondary};
-  padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.xl};
-  border-radius: ${props => props.theme.borderRadius.pill};
+  color: ${props => props.theme?.colors?.secondary || '#6c757d'};
+  border: 2px solid ${props => props.theme?.colors?.secondary || '#6c757d'};
+  padding: ${props => props.theme?.spacing?.md || '1rem'} ${props => props.theme?.spacing?.xl || '2rem'};
+  border-radius: 50px; // Using a fixed value instead of theme.borderRadius.pill
   font-weight: 700;
   transition: all 0.2s;
 
   &:hover {
-    background-color: ${props => props.theme.colors.secondary};
+    background-color: ${props => props.theme?.colors?.secondary || '#6c757d'};
     color: white;
   }
 `;
 
 const FeaturesSection = styled.section`
-  padding: ${props => props.theme.spacing.xxl} 0;
+  padding: ${props => props.theme?.spacing?.xxl || '3rem'} 0;
 `;
 
 const FeatureGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: ${props => props.theme.spacing.xl};
+  gap: ${props => props.theme?.spacing?.xl || '2rem'};
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 ${props => props.theme.spacing.lg};
+  padding: 0 ${props => props.theme?.spacing?.lg || '1.5rem'};
 `;
 
 const FeatureCard = styled.div`
-  background-color: ${props => props.theme.colors.card};
-  padding: ${props => props.theme.spacing.xl};
-  border-radius: ${props => props.theme.borderRadius.medium};
-  box-shadow: ${props => props.theme.shadows.small};
+  background-color: ${props => props.theme?.colors?.card || '#ffffff'};
+  padding: ${props => props.theme?.spacing?.xl || '2rem'};
+  border-radius: 8px; // Using a fixed value instead of theme.borderRadius.medium
+  box-shadow: ${props => props.theme?.shadows?.small || '0 2px 8px rgba(0, 0, 0, 0.1)'};
   text-align: center;
 
   h3 {
-    margin-bottom: ${props => props.theme.spacing.md};
+    margin-bottom: ${props => props.theme?.spacing?.md || '1rem'};
   }
 `;
 

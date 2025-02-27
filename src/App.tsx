@@ -1,35 +1,35 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from './theme/ThemeContext';
-import Header from './components/Header';
+import { ThemeProvider } from './theme/ThemeProvider';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
-import SummaryDetailPage from './pages/SummaryDetailPage';
+import VideosPage from './pages/VideosPage';
+import VideoDetailPage from './pages/VideoDetailPage';
 import DocsPage from './pages/DocsPage';
-import DocDetailPage from './pages/DocDetailPage';
 import AboutPage from './pages/AboutPage';
-import './styles/App.css';
+import './App.css';
 
-const App: React.FC = () => {
+function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="app-container">
-          <Header />
-          <main className="main-content">
+        <div className="App">
+          <Navbar />
+          <div className="content">
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/summary/:id" element={<SummaryDetailPage />} />
+              <Route path="/videos" element={<VideosPage />} />
+              <Route path="/video/:id" element={<VideoDetailPage />} />
               <Route path="/docs" element={<DocsPage />} />
-              <Route path="/docs/:id" element={<DocDetailPage />} />
               <Route path="/about" element={<AboutPage />} />
             </Routes>
-          </main>
+          </div>
           <Footer />
         </div>
       </Router>
     </ThemeProvider>
   );
-};
+}
 
 export default App;

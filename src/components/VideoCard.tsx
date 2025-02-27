@@ -7,16 +7,18 @@ interface VideoCardProps {
 }
 
 const Card = styled.div`
-  background-color: ${({ theme }) => theme.colors.card};
-  border-radius: ${({ theme }) => theme.borderRadius.medium};
-  box-shadow: ${({ theme }) => theme.shadows.medium};
+  background-color: ${props => props.theme?.colors?.card || '#ffffff'};
+  border-radius: ${props => props.theme?.borderRadius?.medium || '8px'};
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+  box-shadow: ${props => props.theme?.shadows?.small || '0 2px 8px rgba(0, 0, 0, 0.1)'};
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: ${({ theme }) => theme.shadows.large};
+    box-shadow: ${props => props.theme?.shadows?.medium || '0 4px 12px rgba(0, 0, 0, 0.15)'};
   }
 `;
 

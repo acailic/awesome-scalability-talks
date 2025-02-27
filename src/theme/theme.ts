@@ -66,4 +66,36 @@ export const darkTheme = {
   animations: lightTheme.animations,
 };
 
-export type Theme = typeof lightTheme;
+export const theme = {
+  colors: {
+    primary: '#007bff',
+    secondary: '#6c757d',
+    background: '#ffffff',
+    navBackground: '#f5f5f5',
+    card: '#ffffff',
+    text: '#333333',
+    border: '#e0e0e0',
+    buttonHover: '#0056b3'
+  },
+  spacing: {
+    xs: '0.25rem',
+    sm: '0.5rem',
+    md: '1rem',
+    lg: '1.5rem',
+    xl: '2rem',
+    xxl: '3rem'
+  },
+  borderRadius: {
+    small: '4px',
+    medium: '8px',
+    large: '12px',
+    pill: '50px'
+  },
+  shadows: {
+    small: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    medium: '0 4px 12px rgba(0, 0, 0, 0.15)',
+    large: '0 8px 24px rgba(0, 0, 0, 0.2)'
+  }
+};
+
+export type Theme = typeof theme;
