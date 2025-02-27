@@ -26,7 +26,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
@@ -56,7 +56,8 @@ a:hover {
   text-decoration: underline;
 }
 
-button, .button {
+button,
+.button {
   cursor: pointer;
   padding: 0.5rem 1.25rem;
   background-color: var(--primary-color);
@@ -68,7 +69,8 @@ button, .button {
   transition: background-color 0.2s ease;
 }
 
-button:hover, .button:hover {
+button:hover,
+.button:hover {
   background-color: #2980b9;
 }
 
