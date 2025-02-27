@@ -42,3 +42,6 @@ yarn-error.log*
 
 # React environment files
 .env
+
+
+prompt.md
