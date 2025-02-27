@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
 import ArticleList from '../components/ArticleList/ArticleList';
 import ArticleContent from '../components/ArticleContent/ArticleContent';
 import { Article } from '../components/ArticleList/ArticleItem';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import DocsPage from './DocsPage';
+import AboutPage from './AboutPage';
 
 // Sample data - replace with your actual data or API call
 const sampleArticles: Article[] = [
@@ -71,16 +76,29 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <Layout
-      sidebar={
-        <ArticleList
-          articles={sampleArticles}
-          selectedArticleId={selectedArticle?.id || null}
-          onArticleSelect={handleArticleSelect}
+    <Router>
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout
+              sidebar={
+                <ArticleList
+                  articles={sampleArticles}
+                  selectedArticleId={selectedArticle?.id || null}
+                  onArticleSelect={handleArticleSelect}
+                />
+              }
+              content={<ArticleContent article={selectedArticle} />}
+            />
+          }
         />
-      }
-      content={<ArticleContent article={selectedArticle} />}
-    />
+        <Route path="/docs" element={<DocsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 };
 

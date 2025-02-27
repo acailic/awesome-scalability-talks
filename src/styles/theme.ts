@@ -1,40 +1,35 @@
 export const theme = {
   colors: {
-    primary: "#FF9A8B",
-    secondary: "#FF6B6B",
-    tertiary: "#A9DEF9",
-    background: "#FFF9F3",
-    text: "#504538",
-    heading: "#8E4162",
-    accent: "#96BB7C",
-    card: "#FFFFFF",
-    shadow: "rgba(0, 0, 0, 0.05)",
-    navBackground: "#FFEDDB",
-    border: "#FFD8CC",
-    buttonHover: "#FF8C7C",
+    primary: "#7db0aa", // Teal background
+    secondary: "#ffb17a", // Orange accent
+    accent: "#ff7e5f", // Button background
+    accentHover: "#ffb17a", // Button hover
+    accentActive: "#ffd166", // Active button
+    text: "#fff8e6", // Light text
+    darkText: "#5c4a36", // Dark text
+    shadow: "rgba(0, 0, 0, 0.2)",
+    buttonShadow: "#e66e54", // Button shadow
+    activeButtonShadow: "#e6a940", // Active button shadow
   },
   fonts: {
-    heading: "'Comic Neue', cursive",
-    body: "'Quicksand', sans-serif",
+    primary: "'Bubblegum Sans', 'Comic Sans MS', cursive, sans-serif",
+    body: "'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+  },
+  shadows: {
+    small: "0 2px 6px rgba(0, 0, 0, 0.15)",
+    medium: "0 4px 12px rgba(0, 0, 0, 0.15)",
+    large: "0 8px 24px rgba(0, 0, 0, 0.15)",
+    text: "2px 2px 0px #ff9d5c, 4px 4px 0px rgba(0, 0, 0, 0.2)",
   },
   borderRadius: {
     small: "8px",
-    medium: "12px",
-    large: "20px",
-    pill: "50px",
+    medium: "16px",
+    large: "30px",
   },
-  shadows: {
-    small: "0 2px 8px rgba(0, 0, 0, 0.05)",
-    medium: "0 4px 12px rgba(0, 0, 0, 0.08)",
-    large: "0 8px 24px rgba(0, 0, 0, 0.1)",
-  },
-  spacing: {
-    xs: "4px",
-    sm: "8px",
-    md: "16px",
-    lg: "24px",
-    xl: "32px",
-    xxl: "48px",
+  transitions: {
+    fast: "0.2s",
+    medium: "0.3s",
+    slow: "0.5s",
   },
 };
 
