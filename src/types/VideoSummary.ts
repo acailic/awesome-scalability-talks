@@ -9,7 +9,6 @@ export interface VideoSummary {
   tags: string[];
   duration: string;
   publishedDate: string;
-  author: string;
   featured?: boolean;
 }
 

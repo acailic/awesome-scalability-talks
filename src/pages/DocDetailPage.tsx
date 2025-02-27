@@ -7,7 +7,6 @@ interface DocDetail {
   title: string;
   category: string;
   content: string;
-  author: string;
   lastUpdated: string;
 }
 
@@ -30,7 +29,6 @@ const DocDetailPage: React.FC = () => {
           title: `Document ${id}`,
           category: 'Documentation',
           content: '# Sample Content\n\nThis is a sample document content.',
-          author: 'System',
           lastUpdated: new Date().toISOString()
         };
 
@@ -68,7 +66,6 @@ const DocDetailPage: React.FC = () => {
           <span className="doc-category">{doc.category}</span>
           <h1>{doc.title}</h1>
           <div className="doc-meta">
-            <span>By {doc.author}</span>
             <span>Last updated: {doc.lastUpdated}</span>
           </div>
         </header>

@@ -22,7 +22,6 @@ export const videos: VideoSummary[] = [
     tags: ["hooks", "functional components", "useState", "useEffect"],
     duration: "25:14",
     publishedDate: "2021-05-15",
-    author: "Tech Academy",
     featured: true,
   },
   {
@@ -48,7 +47,6 @@ export const videos: VideoSummary[] = [
     tags: ["typescript", "types", "interfaces", "generics"],
     duration: "32:47",
     publishedDate: "2022-01-20",
-    author: "CodeWithMe",
   },
   {
     id: "3",
@@ -73,7 +71,6 @@ export const videos: VideoSummary[] = [
     tags: ["redux", "context", "zustand", "recoil", "jotai"],
     duration: "41:23",
     publishedDate: "2023-02-10",
-    author: "Frontend Masters",
     featured: true,
   },
 ];

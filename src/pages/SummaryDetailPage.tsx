@@ -54,7 +54,6 @@ const SummaryDetailPage: React.FC = () => {
         </Link>
         <h1>{summary.title}</h1>
         <div className="meta-info">
-          <span className="author">By {summary.author}</span>
           <span className="date">{new Date(summary.date).toLocaleDateString()}</span>
         </div>
         <div className="tags">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './theme/ThemeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -7,7 +8,6 @@ import SummaryDetailPage from './pages/SummaryDetailPage';
 import DocsPage from './pages/DocsPage';
 import DocDetailPage from './pages/DocDetailPage';
 import AboutPage from './pages/AboutPage';
-import { ThemeProvider } from './contexts/ThemeContext';
 import './styles/App.css';
 
 const App: React.FC = () => {

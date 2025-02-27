@@ -140,7 +140,6 @@ const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
       <CardContent>
         <CardTitle>{video.title}</CardTitle>
         <CardMeta>
-          <span>{video.author}</span>
           <span>{video.duration}</span>
         </CardMeta>
         <TagsContainer>

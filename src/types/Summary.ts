@@ -1,10 +1,18 @@
+export enum VideoCategory {
+  DISTRIBUTED_SYSTEMS = "Distributed Systems",
+  DATABASES = "Databases",
+  CLOUD_INFRASTRUCTURE = "Cloud Infrastructure",
+  PERFORMANCE = "Performance",
+  ARCHITECTURE = "Architecture",
+  OTHER = "Other",
+}
 
-
-
-
-
-
-
-
-
-}  tags: string[];  category: VideoCategory;  author: string;  // Add author property  date: string;  description: string;  title: string;  id: string;export interface Summary {
+export interface Summary {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  category: VideoCategory;
+  tags: string[];
+  content: string; // Added the missing content property
+}

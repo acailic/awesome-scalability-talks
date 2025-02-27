@@ -9,6 +9,13 @@ interface VideoGridProps {
 }
 
 const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: ${props => props.theme.spacing.lg};
+
+  @media (max-width: ${props => props.theme.breakpoints.xl}) {
+    // Your media query styles
+  }
   margin: ${({ theme }) => theme.spacing.xl} 0;
 `;
 

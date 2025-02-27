@@ -9,84 +9,84 @@ import { fetchSummaries } from '../services/dataService';
 import '../styles/HomePage.css';
 
 const Hero = styled.section`
-  padding: ${({ theme }) => theme.spacing.xxl} 0;
+  padding: ${props => props.theme.spacing.xxl} 0;
   text-align: center;
-  background-color: ${({ theme }) => theme.colors.navBackground};
-  border-bottom: 2px solid ${({ theme }) => theme.colors.border};
+  background-color: ${props => props.theme.colors.navBackground};
+  border-bottom: 2px solid ${props => props.theme.colors.border};
 `;
 
 const HeroTitle = styled.h1`
   font-size: 3rem;
-  margin-bottom: ${({ theme }) => theme.spacing.md};
+  margin-bottom: ${props => props.theme.spacing.md};
 
   span {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${props => props.theme.colors.primary};
   }
 `;
 
 const HeroSubtitle = styled.p`
   font-size: 1.2rem;
   max-width: 600px;
-  margin: 0 auto ${({ theme }) => theme.spacing.xl};
+  margin: 0 auto ${props => props.theme.spacing.xl};
 `;
 
 const HeroActions = styled.div`
   display: flex;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing.lg};
+  gap: ${props => props.theme.spacing.lg};
 `;
 
 const PrimaryButton = styled(Link)`
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
   color: white;
-  padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.xl};
-  border-radius: ${({ theme }) => theme.borderRadius.pill};
+  padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.xl};
+  border-radius: ${props => props.theme.borderRadius.pill};
   font-weight: 700;
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.buttonHover};
+    background-color: ${props => props.theme.colors.buttonHover};
     color: white;
   }
 `;
 
 const SecondaryButton = styled(Link)`
   background-color: transparent;
-  color: ${({ theme }) => theme.colors.secondary};
-  border: 2px solid ${({ theme }) => theme.colors.secondary};
-  padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.xl};
-  border-radius: ${({ theme }) => theme.borderRadius.pill};
+  color: ${props => props.theme.colors.secondary};
+  border: 2px solid ${props => props.theme.colors.secondary};
+  padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.xl};
+  border-radius: ${props => props.theme.borderRadius.pill};
   font-weight: 700;
   transition: all 0.2s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
+    background-color: ${props => props.theme.colors.secondary};
     color: white;
   }
 `;
 
 const FeaturesSection = styled.section`
-  padding: ${({ theme }) => theme.spacing.xxl} 0;
+  padding: ${props => props.theme.spacing.xxl} 0;
 `;
 
 const FeatureGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: ${({ theme }) => theme.spacing.xl};
+  gap: ${props => props.theme.spacing.xl};
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 ${({ theme }) => theme.spacing.lg};
+  padding: 0 ${props => props.theme.spacing.lg};
 `;
 
 const FeatureCard = styled.div`
-  background-color: ${({ theme }) => theme.colors.card};
-  padding: ${({ theme }) => theme.spacing.xl};
-  border-radius: ${({ theme }) => theme.borderRadius.medium};
-  box-shadow: ${({ theme }) => theme.shadows.small};
+  background-color: ${props => props.theme.colors.card};
+  padding: ${props => props.theme.spacing.xl};
+  border-radius: ${props => props.theme.borderRadius.medium};
+  box-shadow: ${props => props.theme.shadows.small};
   text-align: center;
 
   h3 {
-    margin-bottom: ${({ theme }) => theme.spacing.md};
+    margin-bottom: ${props => props.theme.spacing.md};
   }
 `;
 

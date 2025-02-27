@@ -16,7 +16,6 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ summary }) => {
       <div className="content">
         <h3>{summary.title}</h3>
         <div className="meta">
-          <span className="author">{summary.author}</span>
           <span className="date">{new Date(summary.date).toLocaleDateString()}</span>
         </div>
         <p className="description">{summary.description}</p>

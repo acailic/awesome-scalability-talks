@@ -37,23 +37,24 @@ export interface Summary {
   thumbnailUrl: string;
   tags: string[];
   date: string;
+  content: string; // Adding the missing content property
+}
 
+export interface DocArticle {
+  id: string;
+  title: string;
+  description: string;
+  fileName: string;
+}
 
+export interface DocSection {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  articles: DocArticle[];
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}  fileName: string;  description: string;  title: string;  id: string;export interface DocArticle {}  articles: DocArticle[];  icon: string;  description: string;  title: string;  id: string;export interface DocSection {}  content: string;  author: string;
+export interface DocDetail {
+  content: string;
+}
