@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { TDocumentation } from "../lib/types";
+import { getAssetPath } from "../utils/paths";
 
 type Store = {
   documentationItems: TDocumentation[];
@@ -17,8 +18,10 @@ export const getDocumentationContentByFileName = async (
   fileName: string
 ): Promise<string> => {
   try {
-    // read from react-learning/{fileName}.md
-    const response = await fetch(`/src/react-learning/${fileName}`);
+    // Use getAssetPath to handle the correct path for both development and production
+    const response = await fetch(
+      getAssetPath(`/src/react-learning/${fileName}`)
+    );
     const content = await response.text();
     return content;
   } catch (error) {
@@ -67,8 +70,10 @@ export const useDocumentationStore = create<Store>((set, get) => ({
     }));
 
     try {
-      // Fetch the docs.json file from the react-learning directory
-      const response = await fetch("/src/react-learning/docs.json");
+      // Use getAssetPath to handle the correct path for both development and production
+      const response = await fetch(
+        getAssetPath("/src/react-learning/docs.json")
+      );
       // If the response is not ok, throw an error
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
