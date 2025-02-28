@@ -43,7 +43,8 @@ yarn-error.log*
 # React environment files
 .env
 
+# Custom directories
+/sources
 
 prompt.md
 .cursorrules
-/sources
