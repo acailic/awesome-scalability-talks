@@ -1,3 +1,4 @@
+import React from "react";
 import { TDocumentation } from "../../lib/types";
 import { getDocumentationContentByFileName} from "../../stores/documentationStore";
 import { useEffect, useState } from "react";
