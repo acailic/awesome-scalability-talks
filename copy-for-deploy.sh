@@ -2,14 +2,27 @@
 
 echo "Preparing files for GitHub Pages deployment..."
 
-# Ensure dist directory exists
+# Ensure dist directory exists and is clean
+rm -rf dist
 mkdir -p dist
 
 # Create .nojekyll file to prevent GitHub Pages from ignoring files that begin with underscore
 touch dist/.nojekyll
 
+# Copy favicon if it exists
+if [ -f "favicon.ico" ]; then
+  echo "Copying favicon.ico..."
+  cp -f favicon.ico dist/
+fi
+
 # Copy 404.html to dist directory
-cp -f public/404.html dist/
+if [ -f "public/404.html" ]; then
+  echo "Copying 404.html..."
+  cp -f public/404.html dist/
+elif [ -f "404.html" ]; then
+  echo "Copying 404.html from root..."
+  cp -f 404.html dist/
+fi
 
 # Copy any other necessary files from public directory
 if [ -d "public" ]; then
@@ -30,6 +43,16 @@ if [ -d "images" ]; then
   mkdir -p dist/images
   cp -rf images/* dist/images/ 2>/dev/null || :
 fi
+
+# Get the latest JS file name - look for both main-*.js and index-*.js
+JS_FILE=$(find dist/assets -name "index-*.js" -o -name "main-*.js" | head -n 1)
+JS_FILENAME=$(basename "$JS_FILE")
+echo "Found JS file: $JS_FILENAME"
+
+# Get the latest CSS file name
+CSS_FILE=$(find dist/assets -name "index-*.css" | head -n 1)
+CSS_FILENAME=$(basename "$CSS_FILE")
+echo "Found CSS file: $CSS_FILENAME"
 
 # Directly edit the index.html file to ensure correct paths
 echo "Directly editing index.html file..."
@@ -53,8 +76,8 @@ cat > dist/index.html << EOL
       })();
     </script>
     <title>Awesome scalability talks</title>
-    <script type="module" crossorigin src="/awesome-scalability-talks/assets/main-f9765e71.js"></script>
-    <link rel="stylesheet" href="/awesome-scalability-talks/assets/index-34376656.css">
+    <script type="module" crossorigin src="/awesome-scalability-talks/assets/${JS_FILENAME}"></script>
+    <link rel="stylesheet" href="/awesome-scalability-talks/assets/${CSS_FILENAME}">
   </head>
   <body>
     <div id="root"></div>
