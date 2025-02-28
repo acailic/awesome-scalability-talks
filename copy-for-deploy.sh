@@ -24,38 +24,34 @@ elif [ -f "404.html" ]; then
   cp -f 404.html dist/
 fi
 
-# Copy any other necessary files from public directory
+# Copy the entire public directory structure
 if [ -d "public" ]; then
-  echo "Copying files from public directory..."
+  echo "Copying public directory structure..."
   cp -rf public/* dist/ 2>/dev/null || :
 fi
 
-# Copy assets directory if it exists at the root level
-if [ -d "assets" ]; then
-  echo "Copying assets from root assets directory..."
-  mkdir -p dist/assets
-  cp -rf assets/* dist/assets/ 2>/dev/null || :
+# Copy the entire src directory structure for static files
+echo "Copying src directory structure..."
+mkdir -p dist/src
+# Copy react-learning directory
+if [ -d "src/react-learning" ]; then
+  echo "Copying src/react-learning directory..."
+  mkdir -p dist/src/react-learning
+  cp -rf src/react-learning/* dist/src/react-learning/
+fi
+
+# Copy assets directory with all subdirectories
+if [ -d "src/assets" ]; then
+  echo "Copying src/assets directory with all subdirectories..."
+  mkdir -p dist/src/assets
+  cp -rf src/assets/* dist/src/assets/
 fi
 
 # Copy images directory if it exists at the root level
 if [ -d "images" ]; then
-  echo "Copying images from root images directory..."
+  echo "Copying images directory..."
   mkdir -p dist/images
   cp -rf images/* dist/images/ 2>/dev/null || :
-fi
-
-# Copy src/react-learning directory to dist/src/react-learning
-if [ -d "src/react-learning" ]; then
-  echo "Copying src/react-learning directory..."
-  mkdir -p dist/src/react-learning
-  cp -rf src/react-learning/* dist/src/react-learning/ 2>/dev/null || :
-fi
-
-# Copy any other necessary source directories that contain static assets
-if [ -d "src/assets" ]; then
-  echo "Copying src/assets directory..."
-  mkdir -p dist/src/assets
-  cp -rf src/assets/* dist/src/assets/ 2>/dev/null || :
 fi
 
 # Get the latest JS file name - look for both main-*.js and index-*.js
@@ -106,7 +102,9 @@ echo "Repository: awesome-scalability-talks" >> dist/deployment-info.txt
 echo "Files prepared for deployment!"
 echo "Contents of dist directory:"
 ls -la dist/
-echo "Contents of dist/src directory (if exists):"
+echo "Contents of dist/src directory:"
 ls -la dist/src/ 2>/dev/null || echo "No src directory found"
-echo "Contents of dist/assets directory:"
-ls -la dist/assets/ 2>/dev/null || echo "No assets directory found"
+echo "Contents of dist/src/assets directory:"
+ls -la dist/src/assets/ 2>/dev/null || echo "No src/assets directory found"
+echo "Contents of dist/src/react-learning directory:"
+ls -la dist/src/react-learning/ 2>/dev/null || echo "No src/react-learning directory found"
