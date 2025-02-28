@@ -30,6 +30,11 @@ See our [contribution guide](./docs/CONTRIBUTING.md) for instructions on adding 
 
 Check out our learning resources in the [docs folder](./docs/) to enhance your React knowledge.
 
+## Live Demo
+
+This project is deployed on GitHub Pages. You can view it here:
+[https://acailic.github.io/awesome-scalability-talks/](https://acailic.github.io/awesome-scalability-talks/)
+
 ## License
 
 MIT
