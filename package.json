@@ -22,9 +22,9 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "deploy:clean": "npm run build && npx gh-pages-clean && npm run deploy"
+    "predeploy": "bash create-public-structure.sh && vite build",
+    "deploy": "bash deploy-fixed.sh",
+    "deploy:clean": "rm -rf node_modules/.cache/gh-pages && npm run deploy"
   },
   "eslintConfig": {
     "extends": [

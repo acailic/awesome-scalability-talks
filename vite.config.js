@@ -21,17 +21,16 @@ export default defineConfig({
   build: {
     outDir: "dist",
     sourcemap: true,
-    // Copy assets from public directory to output directory
     assetsInlineLimit: 0,
+    // Generate hashed asset names
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom'],
-          router: ['react-router-dom']
-        }
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       }
     }
   },
-  // Add this to ensure proper asset handling
+  // Ensure public directory assets are copied
   publicDir: 'public'
 });
