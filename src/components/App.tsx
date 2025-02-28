@@ -3,7 +3,6 @@ import Footer from "./layout/Footer";
 import { useArticlesStore } from "../stores/articlesStore";
 import { useDocumentationStore } from "../stores/documentationStore";
 import { useEffect, useCallback } from "react";
-import ArticleList from "./article/ArticleList";
 
 function App() {
   // Use useCallback to memoize the fetch functions

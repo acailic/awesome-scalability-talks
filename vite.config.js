@@ -26,6 +26,13 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
       },
+      output: {
+        manualChunks: undefined,
+      },
     },
+    // Ensure assets are properly referenced
+    assetsInlineLimit: 4096,
+    // Copy files from public directory to dist
+    copyPublicDir: true,
   },
 });

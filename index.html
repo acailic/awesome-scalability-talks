@@ -3,7 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" />
+    <!-- Handle GitHub Pages routing -->
+    <script>
+      // Store the URL if we came from a redirect
+      (function () {
+        const redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
 
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <title>Awesome scalability talks</title>
   </head>
   <body>

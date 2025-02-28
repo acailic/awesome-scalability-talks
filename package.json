@@ -2,6 +2,7 @@
   "name": "cozy-react-blog",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
@@ -22,9 +23,9 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && bash ./copy-for-deploy.sh",
     "deploy": "gh-pages -d dist",
-    "deploy:clean": "npm run build && npx gh-pages-clean && npm run deploy"
+    "deploy:clean": "npm run build && bash ./copy-for-deploy.sh && npx gh-pages-clean && npm run deploy"
   },
   "eslintConfig": {
     "extends": [
