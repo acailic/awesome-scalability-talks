@@ -1,0 +1,192 @@
+:root {
+  /* Warm, earthy color palette inspired by Cozy Grove */
+  --cozy-beige: #f5e9d6;
+  --cozy-light-brown: #e0c9a6;
+  --cozy-brown: #c4a775;
+  --cozy-dark-brown: #8d7248;
+  --cozy-green: #7a9e7e;
+  --cozy-dark-green: #4a6b4d;
+  --cozy-blue: #7ba7b5;
+  --cozy-dark-blue: #496a75;
+  --cozy-orange: #e8a87c;
+  --cozy-red: #c45d5d;
+
+  /* Font families */
+  --cozy-heading-font: "Gaegu", "Comic Sans MS", cursive;
+  --cozy-body-font: "Varela Round", "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: var(--cozy-beige);
+  background-image: url("../images/paper-texture.png"); /* Fixed path */
+  background-blend-mode: multiply;
+  color: var(--cozy-dark-brown);
+  font-family: var(--cozy-body-font);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--cozy-heading-font);
+  color: var(--cozy-dark-green);
+  letter-spacing: 0.5px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Cozy card style */
+.card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--cozy-light-brown);
+}
+
+/* Navigation */
+nav {
+  background-color: var(--cozy-green);
+  border-radius: 15px;
+  padding: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-family: var(--cozy-heading-font);
+  font-size: 1.2em;
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--cozy-beige);
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--cozy-blue);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-family: var(--cozy-heading-font);
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 0 var(--cozy-dark-blue);
+}
+
+.btn:hover {
+  background-color: var(--cozy-dark-blue);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 var(--cozy-dark-blue);
+}
+
+/* Links */
+a {
+  color: var(--cozy-dark-blue);
+  text-decoration: none;
+  border-bottom: 2px dotted var(--cozy-blue);
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--cozy-blue);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+
+table th {
+  background-color: var(--cozy-green);
+  color: white;
+  font-weight: normal;
+  text-align: left;
+  padding: 12px 15px;
+}
+
+table th:first-child {
+  border-top-left-radius: 15px;
+}
+
+table th:last-child {
+  border-top-right-radius: 15px;
+}
+
+table tr:nth-child(even) {
+  background-color: rgba(122, 158, 126, 0.1);
+}
+
+table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--cozy-light-brown);
+}
+
+/* Decorative elements */
+.divider {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cozy-brown),
+    transparent
+  );
+  margin: 30px 0;
+  border: none;
+}
+
+/* Tag/badge styles */
+.tag {
+  display: inline-block;
+  background-color: var(--cozy-orange);
+  color: white;
+  border-radius: 12px;
+  padding: 5px 12px;
+  font-size: 0.9em;
+  margin-right: 5px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: var(--cozy-dark-brown);
+  border-top: 2px dashed var(--cozy-light-brown);
+}
+
+/* Decorative leaf icon for lists */
+ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+ul li::before {
+  content: "🍂";
+  display: inline-block;
+  margin-right: 10px;
+}
