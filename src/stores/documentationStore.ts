@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { TDocumentation } from "../lib/types";
+import { getAssetPath } from '../utils/assetUtils';
 
 type Store = {
   documentationItems: TDocumentation[];
@@ -24,6 +25,23 @@ export const getDocumentationContentByFileName = async (
   } catch (error) {
     console.error("Error fetching documentation item:", error);
     throw error;
+  }
+};
+
+export const fetchDocumentationItems = async () => {
+  try {
+    // Use the helper for correct path in both dev and production
+    const response = await fetch(getAssetPath('/src/react-learning/docs.json'));
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch documentation: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching documentation:', error);
+    return [];
   }
 };
 
