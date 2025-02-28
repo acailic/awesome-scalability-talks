@@ -2,34 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Awesome Scalability Talks</title>
-    <!-- Path fix for GitHub Pages -->
-    <script type="module">
-      // Detect if running on GitHub Pages
-      const isGitHubPages = window.location.hostname.includes("github.io");
 
-      if (isGitHubPages) {
-        // Add base path for assets
-        const basePath = "/awesome-scalability-talks/";
-
-        // Update links in the document
-        document.querySelectorAll("link[href], script[src]").forEach((el) => {
-          const attr = el.src ? "src" : "href";
-          if (
-            el[attr] &&
-            el[attr].startsWith("/") &&
-            !el[attr].startsWith(basePath)
-          ) {
-            el[attr] = basePath + el[attr].slice(1);
-          }
-        });
-      }
-    </script>
+    <title>Awesome scalability talks</title>
+    <script type="module" crossorigin src="/awesome-scalability-talks/assets/index-454c758a.js"></script>
+    <link rel="stylesheet" href="/awesome-scalability-talks/assets/index-589f77a9.css">
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    
   </body>
 </html>
