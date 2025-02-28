@@ -23,7 +23,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -b main -d dist -m \"Deploy to GitHub Pages [skip ci]\"",
+    "deploy:clean": "npm run build && npx gh-pages-clean && npm run deploy"
   },
   "eslintConfig": {
     "extends": [
