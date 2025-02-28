@@ -17,6 +17,7 @@ type Store = {
   selectedTag?: string;
   getFilteredArticles: () => TArticle[];
   selectTag: (tag: string) => void;
+  getTagsList: () => string[];
 };
 
 export const useArticlesStore = create<Store>((set, get) => ({
@@ -33,6 +34,13 @@ export const useArticlesStore = create<Store>((set, get) => ({
           article.tags.includes(state.selectedTag!)
         )
       : state.articles;
+  },
+
+  getTagsList: () => {
+    const state = get();
+    // Extract all tags from articles and remove duplicates
+    const allTags = state.articles.flatMap((article) => article.tags);
+    return [...new Set(allTags)];
   },
 
   selectTag: (tag: string) => {

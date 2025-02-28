@@ -19,7 +19,7 @@
 
 body {
   background-color: var(--cozy-beige);
-  background-image: url("../images/paper-texture.png"); /* Fixed path */
+  background-image: url("/src/assets/icons/images/Background_Yellow.png"); /* Fixed path */
   background-blend-mode: multiply;
   color: var(--cozy-dark-brown);
   font-family: var(--cozy-body-font);
