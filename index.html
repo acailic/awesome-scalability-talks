@@ -8,26 +8,28 @@
     <!-- Path fix for GitHub Pages -->
     <script type="module">
       // Detect if running on GitHub Pages
-      const isGitHubPages = window.location.hostname.includes('github.io');
+      const isGitHubPages = window.location.hostname.includes("github.io");
 
       if (isGitHubPages) {
         // Add base path for assets
-        const basePath = '/awesome-scalability-talks/';
+        const basePath = "/awesome-scalability-talks/";
 
         // Update links in the document
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</html>  </body>    <script type="module" src="/src/main.tsx"></script>    <div id="root"></div>  <body>  </head>    </script>      }        });          }            el[attr] = basePath + el[attr].slice(1);          if (el[attr] && el[attr].startsWith('/') && !el[attr].startsWith(basePath)) {          const attr = el.src ? 'src' : 'href';        document.querySelectorAll('link[href], script[src]').forEach(el => {
+        document.querySelectorAll("link[href], script[src]").forEach((el) => {
+          const attr = el.src ? "src" : "href";
+          if (
+            el[attr] &&
+            el[attr].startsWith("/") &&
+            !el[attr].startsWith(basePath)
+          ) {
+            el[attr] = basePath + el[attr].slice(1);
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
