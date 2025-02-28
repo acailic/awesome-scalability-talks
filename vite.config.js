@@ -29,6 +29,16 @@ export default defineConfig({
       },
       output: {
         manualChunks: undefined,
+        // Ensure asset filenames are predictable
+        entryFileNames: "assets/[name]-[hash].js",
+        chunkFileNames: "assets/[name]-[hash].js",
+        assetFileNames: (assetInfo) => {
+          // Keep the original file name for images and other assets
+          if (/\.(png|jpe?g|gif|svg|ico)$/.test(assetInfo.name)) {
+            return "assets/[name][extname]";
+          }
+          return "assets/[name]-[hash][extname]";
+        },
       },
     },
     // Ensure assets are properly referenced

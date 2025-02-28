@@ -2,9 +2,22 @@
 
 echo "Preparing files for GitHub Pages deployment..."
 
+# Store the current build assets
+echo "Backing up build assets..."
+mkdir -p temp_assets
+if [ -d "dist/assets" ]; then
+  cp -rf dist/assets/* temp_assets/
+fi
+
 # Ensure dist directory exists and is clean
 rm -rf dist
 mkdir -p dist
+mkdir -p dist/assets
+
+# Restore the build assets
+echo "Restoring build assets..."
+cp -rf temp_assets/* dist/assets/ 2>/dev/null || :
+rm -rf temp_assets
 
 # Create .nojekyll file to prevent GitHub Pages from ignoring files that begin with underscore
 touch dist/.nojekyll
@@ -33,6 +46,7 @@ fi
 # Copy the entire src directory structure for static files
 echo "Copying src directory structure..."
 mkdir -p dist/src
+
 # Copy react-learning directory
 if [ -d "src/react-learning" ]; then
   echo "Copying src/react-learning directory..."
@@ -54,15 +68,31 @@ if [ -d "images" ]; then
   cp -rf images/* dist/images/ 2>/dev/null || :
 fi
 
-# Get the latest JS file name - look for both main-*.js and index-*.js
-JS_FILE=$(find dist/assets -name "index-*.js" -o -name "main-*.js" | head -n 1)
-JS_FILENAME=$(basename "$JS_FILE")
-echo "Found JS file: $JS_FILENAME"
+# Get the latest JS file name
+JS_FILE=$(find dist/assets -name "main-*.js" | head -n 1)
+if [ -z "$JS_FILE" ]; then
+  JS_FILE=$(find dist/assets -name "index-*.js" | head -n 1)
+fi
+if [ -n "$JS_FILE" ]; then
+  JS_FILENAME=$(basename "$JS_FILE")
+  echo "Found JS file: $JS_FILENAME"
+else
+  echo "Warning: No JS file found!"
+  exit 1
+fi
 
 # Get the latest CSS file name
-CSS_FILE=$(find dist/assets -name "index-*.css" | head -n 1)
-CSS_FILENAME=$(basename "$CSS_FILE")
-echo "Found CSS file: $CSS_FILENAME"
+CSS_FILE=$(find dist/assets -name "main-*.css" | head -n 1)
+if [ -z "$CSS_FILE" ]; then
+  CSS_FILE=$(find dist/assets -name "index-*.css" | head -n 1)
+fi
+if [ -n "$CSS_FILE" ]; then
+  CSS_FILENAME=$(basename "$CSS_FILE")
+  echo "Found CSS file: $CSS_FILENAME"
+else
+  echo "Warning: No CSS file found!"
+  exit 1
+fi
 
 # Directly edit the index.html file to ensure correct paths
 echo "Directly editing index.html file..."
@@ -102,6 +132,8 @@ echo "Repository: awesome-scalability-talks" >> dist/deployment-info.txt
 echo "Files prepared for deployment!"
 echo "Contents of dist directory:"
 ls -la dist/
+echo "Contents of dist/assets directory:"
+ls -la dist/assets/ 2>/dev/null || echo "No assets directory found"
 echo "Contents of dist/src directory:"
 ls -la dist/src/ 2>/dev/null || echo "No src directory found"
 echo "Contents of dist/src/assets directory:"
