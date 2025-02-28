@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "title": "Introduction to Scalability",
+      "category": "Basics",
+      "fileName": "intro-scalability.md",
+      "content": "# Introduction to Scalability\n\nScalability refers to the capability of a system to handle growing amounts of work by adding resources to the system."
+    },
+    {
+      "id": "2",
+      "title": "Horizontal vs Vertical Scaling",
+      "category": "Architecture",
+      "fileName": "horizontal-vs-vertical.md",
+      "content": "# Horizontal vs Vertical Scaling\n\n**Vertical Scaling**: Adding more power to an existing machine.\n\n**Horizontal Scaling**: Adding more machines to your resource pool."
+    }
+  ]
+}
