@@ -18,10 +18,16 @@ export const getDocumentationContentByFileName = async (
   fileName: string
 ): Promise<string> => {
   try {
-    // Use getAssetPath to handle the correct path for both development and production
+    // Use a direct path to access markdown files
+    // This ensures we're looking in the correct location relative to the deployed app
     const response = await fetch(
-      getAssetPath(`/src/react-learning/${fileName}`)
+      `${window.location.origin}${getAssetPath(`/src/react-learning/${fileName}`)}`
     );
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch content: ${response.status} ${response.statusText}`);
+    }
+    
     const content = await response.text();
     return content;
   } catch (error) {
