@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      // Single-page application routing fix for GitHub Pages
+      const pathSegments = location.pathname.split("/");
+      const repoName = "awesome-scalability-talks";
+
+      // If this is a direct navigation (not to the root)
+      if (pathSegments.length > 2) {
+        // Redirect to the root with the path as a hash parameter
+        const path = location.pathname.replace(`/${repoName}/`, "/");
+        window.location.replace(`/${repoName}/#${path}`);
+      } else {
+        // Just redirect to the root
+        window.location.replace(`/${repoName}/`);
+      }
+    </script>
+  </head>
+  <body>
+    Redirecting to homepage...
+  </body>
+</html>

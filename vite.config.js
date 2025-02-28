@@ -7,7 +7,8 @@ const repoName = "awesome-scalability-talks";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === "production" ? `/${repoName}/` : "/",
+  // Always use the repo name in the base path for GitHub Pages
+  base: `/${repoName}/`,
   server: {
     port: 3000,
     open: true,
