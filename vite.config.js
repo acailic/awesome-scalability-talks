@@ -11,8 +11,8 @@ export default defineConfig({
   base: `/${repoName}/`,
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
+      "@": resolve(__dirname, "src"),
+    },
   },
   server: {
     port: 3000,
@@ -24,7 +24,7 @@ export default defineConfig({
     // Support both .jsx and .tsx files
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
+        main: resolve(__dirname, "index.html"),
       },
     },
   },
