@@ -31,23 +31,36 @@ if [ -d "images" ]; then
   cp -rf images/* dist/images/ 2>/dev/null || :
 fi
 
-# Ensure the base path is correctly set in the HTML files (but avoid duplicates)
-echo "Fixing paths in HTML files..."
+# Directly edit the index.html file to ensure correct paths
+echo "Directly editing index.html file..."
+cat > dist/index.html << EOL
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/awesome-scalability-talks/favicon.ico" />
+    <!-- Handle GitHub Pages routing -->
+    <script>
+      // Store the URL if we came from a redirect
+      (function () {
+        const redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
 
-# First, revert any existing replacements to avoid duplicates
-find dist -name "*.html" -type f -exec sed -i.bak "s|href=\"/awesome-scalability-talks/awesome-scalability-talks/|href=\"/awesome-scalability-talks/|g" {} \;
-find dist -name "*.html" -type f -exec sed -i.bak "s|src=\"/awesome-scalability-talks/awesome-scalability-talks/|src=\"/awesome-scalability-talks/|g" {} \;
-
-# Then apply the correct replacements, but only if they don't already have the prefix
-find dist -name "*.html" -type f -exec sed -i.bak "s|href=\"/|href=\"/awesome-scalability-talks/|g" {} \;
-find dist -name "*.html" -type f -exec sed -i.bak "s|src=\"/|src=\"/awesome-scalability-talks/|g" {} \;
-
-# Also fix relative paths that don't start with / but should have the base path
-find dist -name "*.html" -type f -exec sed -i.bak "s|href=\"assets/|href=\"/awesome-scalability-talks/assets/|g" {} \;
-find dist -name "*.html" -type f -exec sed -i.bak "s|src=\"assets/|src=\"/awesome-scalability-talks/assets/|g" {} \;
-
-# Clean up backup files
-find dist -name "*.html.bak" -type f -delete
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    <title>Awesome scalability talks</title>
+    <script type="module" crossorigin src="/awesome-scalability-talks/assets/main-f9765e71.js"></script>
+    <link rel="stylesheet" href="/awesome-scalability-talks/assets/index-34376656.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+EOL
 
 # Create a simple verification file to confirm deployment
 echo "Deployment timestamp: $(date)" > dist/deployment-info.txt
