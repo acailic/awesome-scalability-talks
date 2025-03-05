@@ -1,40 +1,46 @@
 .tag-list-container {
-  margin: 20px 0;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: #f5f5f5;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #f0f2f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e3e7;
 }
 
 .tag-list__title {
-  margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 18px;
+  margin: 0 0 10px 0;
+  font-size: 16px;
   font-weight: 600;
+  color: #2d3748;
 }
 
 .tag-tabs {
   display: flex;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
 }
 
 .tag-tab {
-  padding: 8px 16px;
+  padding: 6px 12px;
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
   cursor: pointer;
   font-weight: 500;
+  font-size: 14px;
+  color: #4a5568;
   transition: all 0.2s ease;
+  margin-right: 8px;
 }
 
 .tag-tab:hover {
-  background-color: #eaeaea;
+  background-color: #edf2f7;
+  border-radius: 6px;
 }
 
 .tag-tab--active {
-  border-bottom: 2px solid #0066cc;
-  color: #0066cc;
+  border-bottom: 2px solid #4299e1;
+  color: #4299e1;
 }
 
 .tag-list {
@@ -46,24 +52,27 @@
 .tag-items {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .tag-item {
-  padding: 6px 12px;
-  background-color: #e0e0e0;
+  padding: 4px 10px;
+  background-color: #e2e8f0;
   border: none;
-  border-radius: 16px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.2s ease;
+  color: #2d3748;
 }
 
 .tag-item:hover {
-  background-color: #d0d0d0;
+  background-color: #cbd5e0;
+  transform: translateY(-1px);
 }
 
 .tag-item--active {
-  background-color: #0066cc;
+  background-color: #4299e1;
   color: white;
+  box-shadow: 0 2px 4px rgba(66, 153, 225, 0.3);
 }
