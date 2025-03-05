@@ -271,10 +271,10 @@ ul li::before {
 
 /* Tag List Component */
 .tag-list-container {
-  margin-bottom: 20px;
-  padding: 15px;
+  margin-bottom: 2px;
+  padding: 3px;
   background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 15px;
+  border-radius: 1px;
   border: 1px solid var(--cozy-light-brown);
 }
 

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { TAB } from "./tabs.ts";
+import { TAB } from "./tabs";
 
 interface TabState {
   activeTab: String;
