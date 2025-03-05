@@ -5,6 +5,7 @@ interface TextToSpeechOptions {
   pitch?: number;
   volume?: number;
   lang?: string;
+  voiceURI?: string;
 }
 
 export function useTextToSpeech(options: TextToSpeechOptions = {}) {
@@ -58,11 +59,25 @@ export function useTextToSpeech(options: TextToSpeechOptions = {}) {
       // Create new utterance
       const newUtterance = new SpeechSynthesisUtterance(text);
 
+      // Find selected voice
+      const voices = window.speechSynthesis.getVoices();
+      const selectedVoice = voices.find((v) => v.voiceURI === options.voiceURI);
+
+      console.log("Available voices:", voices);
+      console.log("Selected voice URI:", options.voiceURI);
+      console.log("Resolved voice:", selectedVoice);
+
       // Apply options
       newUtterance.rate = options.rate || 1;
       newUtterance.pitch = options.pitch || 1;
       newUtterance.volume = options.volume || 1;
       newUtterance.lang = options.lang || "en-US";
+
+      if (selectedVoice) {
+        newUtterance.voice = selectedVoice;
+      } else {
+        console.warn("Selected voice not found, using default");
+      }
 
       // Handle events
       newUtterance.onend = () => {
