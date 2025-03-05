@@ -1,10 +1,16 @@
 .tag-list-container {
-  margin: 10px 0;
-  padding: 10px;
+  margin: 6px 0;  /* Reduced from 10px */
+  padding: 6px;   /* Reduced from 10px */
   border-radius: 12px;
   background-color: #f0f2f5;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e3e7;
+  transition: margin 0.2s ease, padding 0.2s ease;
+}
+
+.tag-list-container.collapsed {
+  padding: 2px;  /* Even smaller padding when collapsed */
+  margin: 4px 0; /* Even smaller margin when collapsed */
 }
 
 .tag-list__title {
@@ -82,9 +88,10 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 2px 4px;  /* Reduced from 4px 8px */
   border-radius: 8px;
   transition: background-color 0.2s ease;
+  min-height: 22px;  /* Ensure minimum height when collapsed */
 }
 
 .tag-list-header:hover {
@@ -100,9 +107,14 @@
 
 .toggle-icon {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 16px;       /* Reduced from 20px */
+  height: 16px;      /* Reduced from 20px */
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>');
   background-size: contain;
   background-repeat: no-repeat;
+  transition: transform 0.2s ease;
+}
+
+.toggle-icon.expanded {
+  transform: rotate(180deg);
 }

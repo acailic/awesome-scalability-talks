@@ -54,10 +54,14 @@ if [ -d "src/react-learning" ]; then
   cp -rf src/react-learning/* dist/src/react-learning/
 fi
 
-## copy deployment-info.txt
-if [ -f "deployment-info.txt" ]; then
+# Run the update-deployment-info script to generate fresh deployment info
+echo "Updating deployment information..."
+./update-deployment-info.sh
+
+# Copy deployment-info.txt to dist directory
+if [ -f "public/deployment-info.txt" ]; then
   echo "Copying deployment-info.txt..."
-  cp -f deployment-info.txt dist/
+  cp -f public/deployment-info.txt dist/
 fi
 
 # Copy talks directory
@@ -137,10 +141,6 @@ cat > dist/index.html << EOL
   </body>
 </html>
 EOL
-
-# Create a simple verification file to confirm deployment
-echo "Deployment timestamp: $(date)" > dist/deployment-info.txt
-echo "Repository: awesome-scalability-talks" >> dist/deployment-info.txt
 
 echo "Files prepared for deployment!"
 echo "Contents of dist directory:"

@@ -14,3 +14,7 @@ cp src/react-learning/docs.json public/src/react-learning/
 # Copy images
 cp images/*.png public/images/
 cp images/*.jpg public/images/
+
+# Update deployment information
+echo "Updating deployment information..."
+./update-deployment-info.sh

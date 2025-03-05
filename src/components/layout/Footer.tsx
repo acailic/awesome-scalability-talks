@@ -2,7 +2,12 @@ import { useState, useEffect } from 'react';
 import { getAssetPath } from '../../utils/paths';
 
 export default function Footer() {
-  const [deploymentInfo, setDeploymentInfo] = useState<{ timestamp?: string, repository?: string }>({});
+  const [deploymentInfo, setDeploymentInfo] = useState<{ 
+    timestamp?: string, 
+    repository?: string,
+    deployedAt?: string,
+    version?: string 
+  }>({});
 
   useEffect(() => {
     fetch(getAssetPath('/deployment-info.txt')) // Use the utility to get the correct path
@@ -11,7 +16,9 @@ export default function Footer() {
         const lines = text.split('\n');
         const info = {
           timestamp: lines[0].split(': ')[1]?.trim(),
-          repository: lines[1].split(': ')[1]?.trim()
+          repository: lines[1].split(': ')[1]?.trim(),
+          deployedAt: lines[2].split(': ')[1]?.trim(),
+          version: lines[3].split(': ')[1]?.trim()
         };
         setDeploymentInfo(info);
       })
@@ -31,7 +38,8 @@ export default function Footer() {
                 day: 'numeric'
               })
             : 'Invalid date format'} •
-          Repository: {deploymentInfo.repository}
+          <a href={deploymentInfo.repository} target="_blank" rel="noopener noreferrer">Repository</a> •
+          {deploymentInfo.version && <span>Version: {deploymentInfo.version}</span>}
         </p>
       )}
     </footer>
