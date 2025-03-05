@@ -49,16 +49,19 @@ export default function TagList() {
               className={`tag-tab ${activeTab === TAB.ARTICLES ? "tag-tab--active" : ""}`}
               onClick={handleArticlesTabClick}
             >
+              Articles
             </button>
             <button
               className={`tag-tab ${activeTab === TAB.DOCUMENTATION ? "tag-tab--active" : ""}`}
               onClick={handleDocumentationTabClick}
             >
+              Documentation
             </button>
             <button
               className={`tag-tab ${activeTab === TAB.TALKS ? "tag-tab--active" : ""}`}
               onClick={handleTalksTabClick}
             >
+              Talks
             </button>
           </div>
           <ul className="tag-list">
@@ -74,39 +77,6 @@ export default function TagList() {
           </ul>
         </>
       )}
-    </div>
-  );
-}
-
-      <h3 className="tag-list__title">Filter by Tags</h3>
-      <div className="tag-tabs">
-        <button
-          className={`tag-tab ${activeTab === TAB.ARTICLES ? "tag-tab--active" : ""}`}
-          onClick={handleArticlesTabClick}
-        >
-        </button>
-        <button
-          className={`tag-tab ${activeTab === TAB.DOCUMENTATION ? "tag-tab--active" : ""}`}
-          onClick={handleDocumentationTabClick}
-        >
-        </button>
-        <button
-          className={`tag-tab ${activeTab === TAB.TALKS ? "tag-tab--active" : ""}`}
-          onClick={handleTalksTabClick}
-        >
-        </button>
-      </div>
-      <ul className="tag-list">
-        {isInitialized && (
-          activeTab === TAB.ARTICLES ? (
-            <ArticleTagList />
-          ) : activeTab === TAB.DOCUMENTATION ? (
-            <DocumentationTagList />
-          ) : (
-            <TalkTagList />
-          )
-        )}
-      </ul>
     </div>
   );
 }
