@@ -6,8 +6,8 @@ interface TextToSpeechProps {
 }
 
 export function TextToSpeech({ text }: TextToSpeechProps) {
-  const [speed, setSpeed] = useState(1.5);
-  const [pitch, setPitch] = useState(0.9);
+  const [speed, setSpeed] = useState(1.6);
+  const [pitch, setPitch] = useState(1.0);
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selectedVoice, setSelectedVoice] = useState<string>('');
 
@@ -22,10 +22,19 @@ export function TextToSpeech({ text }: TextToSpeechProps) {
   useEffect(() => {
     const loadVoices = () => {
       const availableVoices = window.speechSynthesis.getVoices();
-      setVoices(availableVoices.filter(v => v.lang === 'en-US'));
-      if (availableVoices.length > 0) {
-        setSelectedVoice(availableVoices.find(v => v.name.includes('Natural'))?.voiceURI || availableVoices[0].voiceURI);
-      }
+      const englishVoices = availableVoices.filter(v => v.lang.startsWith('en'));
+
+      const preferredVoices = englishVoices.filter(v =>
+        v.name.toLowerCase().includes('female') ||
+        v.name.toLowerCase().includes('zira') ||
+        v.name.toLowerCase().includes('samantha') ||
+        v.name.toLowerCase().includes('karen')
+      );
+
+      setVoices(englishVoices);
+
+      const initialVoice = preferredVoices[0] || englishVoices[0];
+      setSelectedVoice(initialVoice?.voiceURI || '');
     };
 
     window.speechSynthesis.onvoiceschanged = loadVoices;
