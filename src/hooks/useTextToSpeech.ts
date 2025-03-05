@@ -11,9 +11,6 @@ interface TextToSpeechOptions {
 export function useTextToSpeech(options: TextToSpeechOptions = {}) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [utterance, setUtterance] = useState<SpeechSynthesisUtterance | null>(
-    null
-  );
 
   // Initialize speech synthesis
   useEffect(() => {
@@ -32,7 +29,6 @@ export function useTextToSpeech(options: TextToSpeechOptions = {}) {
     window.speechSynthesis.cancel();
     setIsPlaying(false);
     setIsPaused(false);
-    setUtterance(null);
   }, []);
 
   const pause = useCallback(() => {
@@ -53,10 +49,8 @@ export function useTextToSpeech(options: TextToSpeechOptions = {}) {
     (text: string) => {
       if (!text) return;
 
-      // Cancel any ongoing speech
       stop();
 
-      // Create new utterance
       const newUtterance = new SpeechSynthesisUtterance(text);
 
       // Find selected voice
@@ -83,18 +77,15 @@ export function useTextToSpeech(options: TextToSpeechOptions = {}) {
       newUtterance.onend = () => {
         setIsPlaying(false);
         setIsPaused(false);
-        setUtterance(null);
       };
 
       newUtterance.onerror = (event) => {
         console.error("Speech synthesis error:", event);
         setIsPlaying(false);
         setIsPaused(false);
-        setUtterance(null);
       };
 
       // Start speaking
-      setUtterance(newUtterance);
       setIsPlaying(true);
       window.speechSynthesis.speak(newUtterance);
     },
