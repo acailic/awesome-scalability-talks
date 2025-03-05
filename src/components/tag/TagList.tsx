@@ -33,7 +33,7 @@ export default function TagList() {
   return (
     <div className="tag-list-container">
       <div className="tag-list-header">
-        <h5 className="tag-list__title">Filter by Tags</h5>
+        {/* <h5 className="tag-list__title">Filter by Tags</h5> */}
         <button
           className="tag-list-toggle"
           onClick={toggleExpansion}
