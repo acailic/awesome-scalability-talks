@@ -31,7 +31,8 @@
     "deploy": "gh-pages -d dist",
     "deploy:clean": "npm run build && bash ./copy-for-deploy.sh && npx gh-pages-clean && npm run deploy",
     "deploy:combine": "npm run build && npm run predeploy && npm run deploy",
-    "deploy:clean:combine": "npm run build && bash ./copy-for-deploy.sh && npx gh-pages-clean && npm run deploy:combine"
+    "deploy:clean:combine": "npm run build && bash ./copy-for-deploy.sh && npx gh-pages-clean && npm run deploy:combine",
+    "commit:deploy":"git add . && git commit -m 'update' && git push && npm run deploy:clean:combine"
   },
   "eslintConfig": {
     "extends": [

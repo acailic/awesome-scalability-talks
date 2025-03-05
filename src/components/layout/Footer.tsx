@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import { getAssetPath } from '../../utils/paths';
 
 export default function Footer() {
   const [deploymentInfo, setDeploymentInfo] = useState<{ timestamp?: string, repository?: string }>({});
 
   useEffect(() => {
-    fetch('/deployment-info.txt')
+    fetch(getAssetPath('/deployment-info.txt')) // Use the utility to get the correct path
       .then(response => response.text())
       .then(text => {
         const lines = text.split('\n');
