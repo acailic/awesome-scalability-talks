@@ -11,20 +11,27 @@ import { TAB } from "../../stores/tabs";
 
 export default function Container() {
   const { activeTab, setActiveTab, isInitialized, initializationTab } = useTabStore();
-  
+
   // Set default tab on initial render
   useEffect(() => {
     initializationTab();
   }, [initializationTab]);
-  
+
   const handleTabClick = useCallback((tab: string) => {
     setActiveTab(tab);
   }, [setActiveTab]);
-  
+
   return (
     <div className="container">
       <Header />
       <div className="tabs">
+         <button
+          className={`tab ${activeTab === TAB.TALKS ? "tab--active" : ""}`}
+          onClick={() => handleTabClick(TAB.TALKS)}
+        >
+         <TabIcon iconName={ICONS.HEART} alt="Talks icon" />
+          Talks
+        </button>
         <button
           className={`tab ${activeTab === TAB.ARTICLES ? "tab--active" : ""}`}
           onClick={() => handleTabClick(TAB.ARTICLES)}
@@ -39,13 +46,7 @@ export default function Container() {
          <TabIcon iconName={ICONS.COIN} alt="Documentation icon" />
           React Documentation
         </button>
-        <button
-          className={`tab ${activeTab === TAB.TALKS ? "tab--active" : ""}`}
-          onClick={() => handleTabClick(TAB.TALKS)}
-        >
-         <TabIcon iconName={ICONS.HEART} alt="Talks icon" />
-          Talks
-        </button>
+
       </div>
       <TagList />
       <div className="content">

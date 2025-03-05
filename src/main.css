@@ -811,3 +811,43 @@ ul li::before {
   color: var(--cozy-dark-brown);
   opacity: 0.7;
 }
+
+/* Text to Speech */
+.text-to-speech {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.text-to-speech__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: var(--cozy-blue);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: var(--cozy-body-font);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.text-to-speech__button:hover {
+  background-color: var(--cozy-dark-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-to-speech__button--active {
+  background-color: var(--cozy-green);
+}
+
+.text-to-speech__button--stop {
+  background-color: var(--cozy-red);
+}
+
+.text-to-speech__button--stop:hover {
+  background-color: #a94242;
+}

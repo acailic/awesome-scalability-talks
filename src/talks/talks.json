@@ -1,12 +1,17 @@
 [
   {
-    "id": "dropbox-scalability-summary",
-    "title": "Scaling Reliability at Dropbox",
-    "icon": "dropbox-logo.png",
-    "fileName": "02-dropbox-scalability-summary.md",
-    "description": "Learn how Dropbox scaled its reliability and incident management processes as it grew from 1 million to 400 million users.",
-    "tags": ["scalability", "reliability", "incident management", "dropbox"],
-    "category": "case-study"
+    "id": "distributed-systems-in-one-lesson",
+    "title": "Tim Berglund's 'Distributed Systems in One Lesson' Talk",
+    "icon": "youtube-logo.png",
+    "fileName": "01-distributed-system-one-lesson.md",
+    "description": "A concise introduction to distributed systems, covering topics like consistency, availability, and scalability.",
+    "tags": [
+      "distributed systems",
+      "consistency",
+      "availability",
+      "scalability"
+    ],
+    "category": "education"
   },
   {
     "id": "distributed-systems-in-one-lesson",

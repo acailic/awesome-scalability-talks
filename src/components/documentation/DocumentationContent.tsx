@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { TDocumentation } from "../../lib/types";
-import { getDocumentationContentByFileName} from "../../stores/documentationStore";
-import { useEffect, useState } from "react";
+import { getDocumentationContentByFileName } from "../../stores/documentationStore";
 import { marked } from "marked";
+import TextToSpeech from "../TextToSpeech";
 
 type DocumentationContentProps = {
   doc: TDocumentation;
@@ -12,6 +12,7 @@ export default function DocumentationContent({ doc }: DocumentationContentProps)
   const [content, setContent] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [plainTextContent, setPlainTextContent] = useState<string>("");
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -19,12 +20,18 @@ export default function DocumentationContent({ doc }: DocumentationContentProps)
       setLoading(true);
       setContent(null);
       setError(null);
-      
+      setPlainTextContent("");
+
       try {
         // If document already has content, use it
         if (doc.content) {
-          setContent(String(marked.parse(doc.content)));
-        } 
+          const htmlContent = String(marked.parse(doc.content));
+          setContent(htmlContent);
+          // Create plain text version for text-to-speech
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = htmlContent;
+          setPlainTextContent(`${doc.title}. ${tempDiv.textContent || ""}`);
+        }
         // Otherwise fetch content if fileName is provided
         else if (doc.fileName) {
           console.log(`Fetching content for: ${doc.fileName}`);
@@ -32,7 +39,12 @@ export default function DocumentationContent({ doc }: DocumentationContentProps)
           if (!fetchedContent) {
             throw new Error("Content was empty");
           }
-          setContent(String(marked.parse(fetchedContent)));
+          const htmlContent = String(marked.parse(fetchedContent));
+          setContent(htmlContent);
+          // Create plain text version for text-to-speech
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = htmlContent;
+          setPlainTextContent(`${doc.title}. ${tempDiv.textContent || ""}`);
           console.log("Content successfully loaded and parsed");
         } else {
           console.warn("No content or filename provided for document:", doc.title);
@@ -55,6 +67,7 @@ export default function DocumentationContent({ doc }: DocumentationContentProps)
       <header className="documentation-content__header">
         <h1 className="documentation-content__title">{doc.title}</h1>
         <div className="documentation-content__category">{doc.category}</div>
+        {content && <TextToSpeech text={plainTextContent} />}
       </header>
 
       <div className="documentation-content__body">
