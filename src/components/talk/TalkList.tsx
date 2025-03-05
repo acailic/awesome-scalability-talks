@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { useTalksStore } from "../../stores/talksStore";
 import TalkItem from "./TalkItem";
 import TalkContent from "./TalkContent";
@@ -9,26 +9,27 @@ import { TTalk } from "../../lib/types";
 export function TalkList() {
   const [selectedTalkId, setSelectedTalkId] = useState<string | null>(null);
 
-  // Use useMemo to memoize the selectors
-  const isLoading = useMemo(() => useTalksStore.getState().isLoading, []);
-  const errorMessage = useMemo(() => useTalksStore.getState().errorMessage, []);
-  const talks = useMemo(() => useTalksStore.getState().talks, []);
+  // Properly subscribe to the store state changes
+  const isLoading = useTalksStore(state => state.isLoading);
+  const errorMessage = useTalksStore(state => state.errorMessage);
+  const talks = useTalksStore(state => state.getFilteredTalks());
 
   const handleSelectTalk = (id: string) => {
     setSelectedTalkId(id);
   };
 
+  // Find the selected talk
   const selectedTalk = selectedTalkId
     ? talks.find(talk => talk.id === selectedTalkId)
     : null;
-
-  if (isLoading) return <Spinner />;
-  if (errorMessage) return <ErrorMessage message={errorMessage} />;
 
   return (
     <div className="talk-container">
       <div className="talk-sidebar">
         <h2 className="talk-sidebar__title">Scalability Talks</h2>
+
+        {isLoading && <Spinner />}
+        {errorMessage && <ErrorMessage message={errorMessage} />}
 
         <ul className="talk-list">
           {talks.map((talk) => (

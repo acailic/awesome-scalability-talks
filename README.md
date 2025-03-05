@@ -1,5 +1,7 @@
 # Awesome Scalability Talks
 
+![Awesome Scalability Talks](Awesome%20scalability%20talks.jpeg)
+
 > Explore a curated list of eye-opening, mind-blowing sessions all about building scalable applications.
 
 ## What's Inside
