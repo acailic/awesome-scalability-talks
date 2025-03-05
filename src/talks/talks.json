@@ -10,7 +10,9 @@
       "consistency",
       "availability",
       "scalability"
-    ]
+    ],
+    "summary": "",
+    "keyPoints": []
   },
   {
     "id": "dropbox-scalability",
@@ -24,5 +26,20 @@
       "incident management",
       "data durability"
     ]
+  },
+  {
+    "id": "shopify-80k-rps",
+    "title": "Architecture to Handle 80K RPS Celebrity Sales at Shopify",
+    "icon": "youtube-logo.png",
+    "fileName": "03-architecture-to-handle-80k-rps-celebrity-sales-at-shopify-sum.md",
+    "description": "Shopify's infrastructure evolution to handle massive flash sales through pod-based architecture and global traffic management.",
+    "tags": [
+      "scalability",
+      "high traffic",
+      "architecture",
+      "failover strategies"
+    ],
+    "summary": "",
+    "keyPoints": []
   }
 ]
