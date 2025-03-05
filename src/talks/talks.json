@@ -3,7 +3,7 @@
     "id": "distributed-systems-in-one-lesson",
     "title": "Tim Berglund's 'Distributed Systems in One Lesson' Talk",
     "icon": "youtube-logo.png",
-    "fileName": "01-distributed-system-one-lesson.md",
+    "fileName": "01-distributed-systems-in-one-lesson.md",
     "description": "A concise introduction to distributed systems, covering topics like consistency, availability, and scalability.",
     "tags": [
       "distributed systems",
@@ -24,7 +24,19 @@
       "consistency",
       "availability",
       "scalability"
-    ],
-    "category": "education"
+    ]
+  },
+  {
+    "id": "dropbox-scalability",
+    "title": "Scaling Reliability at Dropbox",
+    "icon": "youtube-logo.png",
+    "fileName": "02-dropbox-scalability-summary.md",
+    "description": "Dropbox's journey in improving reliability and scalability, focusing on incident management and system durability.",
+    "tags": [
+      "reliability",
+      "scalability",
+      "incident management",
+      "data durability"
+    ]
   }
 ]
