@@ -10,10 +10,10 @@ export default function ArticleList() {
   const [selectedArticleId, setSelectedArticleId] = useState<number | null>(null);
   const [page, setPage] = useState(1);
 
-  // Use useMemo to memoize the selectors
-  const isLoading = useMemo(() => useArticlesStore.getState().isLoading, []);
-  const errorMessage = useMemo(() => useArticlesStore.getState().errorMessage, []);
-  const filteredArticles = useMemo(() => useArticlesStore.getState().getFilteredArticles(), []);
+  // Use the Zustand store hooks to properly subscribe to state changes
+  const isLoading = useArticlesStore(state => state.isLoading);
+  const errorMessage = useArticlesStore(state => state.errorMessage);
+  const filteredArticles = useArticlesStore(state => state.getFilteredArticles());
 
   const totalPages = Math.ceil(filteredArticles.length / 10);
   const paginatedArticles = useMemo(() =>
