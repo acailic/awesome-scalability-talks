@@ -17,6 +17,9 @@
     "react-dom": "^19.0.0",
     "react-scripts": "^5.0.1",
     "vite": "^5.1.4",
+    "youtube-dl-exec": "^3.0.16",
+    "youtube-transcript": "^1.2.1",
+    "youtube-transcript-api": "^1.1.2",
     "zustand": "^5.0.3"
   },
   "scripts": {
@@ -49,10 +52,11 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^22.13.5",
+    "@types/node": "^22.13.9",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
     "gh-pages": "^6.3.0",
-    "typescript": "^5.7.3"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
   }
 }
