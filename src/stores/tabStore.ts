@@ -7,10 +7,10 @@ interface TabState {
   initializationTab: () => void;
   setActiveTab: (tab: String) => void;
 }
-const DEFAULT_TAB = TAB.ARTICLES;
+const DEFAULT_TAB = TAB.TALKS;
 
 export const useTabStore = create<TabState>((set, get) => ({
-  activeTab: "talks",
+  activeTab: DEFAULT_TAB,
   isInitialized: false,
   setActiveTab: (tab) => set({ activeTab: tab }),
   initializationTab: () => {
