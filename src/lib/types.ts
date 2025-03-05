@@ -18,3 +18,14 @@ export type TDocumentation = {
   category: string;
   fileName: string;
 };
+
+export type TTalk = {
+  id: string;
+  title: string;
+  content?: string; 
+  icon?: string;
+  fileName: string;
+  description: string;
+  tags: string[];
+  category: string;
+};

@@ -54,6 +54,13 @@ if [ -d "src/react-learning" ]; then
   cp -rf src/react-learning/* dist/src/react-learning/
 fi
 
+# Copy talks directory
+if [ -d "src/talks" ]; then
+  echo "Copying src/talks directory..."
+  mkdir -p dist/src/talks
+  cp -rf src/talks/* dist/src/talks/
+fi
+
 # Copy assets directory with all subdirectories
 if [ -d "src/assets" ]; then
   echo "Copying src/assets directory with all subdirectories..."
@@ -140,3 +147,5 @@ echo "Contents of dist/src/assets directory:"
 ls -la dist/src/assets/ 2>/dev/null || echo "No src/assets directory found"
 echo "Contents of dist/src/react-learning directory:"
 ls -la dist/src/react-learning/ 2>/dev/null || echo "No src/react-learning directory found"
+echo "Contents of dist/src/talks directory:"
+ls -la dist/src/talks/ 2>/dev/null || echo "No src/talks directory found"
