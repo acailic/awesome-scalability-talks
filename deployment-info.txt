@@ -1,2 +1,2 @@
-Deployment timestamp: Wed Mar  5 10:22:15 CET 2025
+Deployment timestamp: Wed Mar  5 10:24:38 CET 2025
 Repository: awesome-scalability-talks
