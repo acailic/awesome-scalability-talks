@@ -1,7 +1,7 @@
 .tag-list-container {
-  margin: 6px 0;  /* Reduced from 10px */
-  padding: 6px;   /* Reduced from 10px */
-  border-radius: 12px;
+  margin: 1px 0;  /* Reduced from 10px */
+  padding: 1px;   /* Reduced from 10px */
+  border-radius: 3px;
   background-color: #f0f2f5;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e3e7;
@@ -9,8 +9,8 @@
 }
 
 .tag-list-container.collapsed {
-  padding: 2px;  /* Even smaller padding when collapsed */
-  margin: 4px 0; /* Even smaller margin when collapsed */
+  padding: 1px;  /* Even smaller padding when collapsed */
+  margin: 1px 0; /* Even smaller margin when collapsed */
 }
 
 .tag-list__title {

@@ -1,4 +1,4 @@
-Timestamp: 2025-03-05T13:20:50Z
+Timestamp: 2025-03-05T13:24:27Z
 Repository: https://github.com/acailic/awesome-scalability-talks
 DeployedAt: https://acailic.github.io/awesome-scalability-talks
-Version: 9b54f06
+Version: 9403164
