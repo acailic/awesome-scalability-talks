@@ -88,10 +88,10 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  padding: 2px 4px;  /* Reduced from 4px 8px */
-  border-radius: 8px;
+  padding: 1px 2px;  /* Reduced from 4px 8px */
+  border-radius: 2px;
   transition: background-color 0.2s ease;
-  min-height: 22px;  /* Ensure minimum height when collapsed */
+  min-height: 15px;  /* Ensure minimum height when collapsed */
 }
 
 .tag-list-header:hover {
