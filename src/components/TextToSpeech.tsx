@@ -6,8 +6,8 @@ interface TextToSpeechProps {
 }
 
 export function TextToSpeech({ text }: TextToSpeechProps) {
-  const [speed, setSpeed] = useState(1.6);
-  const [pitch, setPitch] = useState(1.0);
+  const [speed, setSpeed] = useState(1.5);
+  const [pitch, setPitch] = useState(1.2);
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selectedVoice, setSelectedVoice] = useState<string>('');
 
@@ -25,10 +25,8 @@ export function TextToSpeech({ text }: TextToSpeechProps) {
       const englishVoices = availableVoices.filter(v => v.lang.startsWith('en'));
 
       const preferredVoices = englishVoices.filter(v =>
-        v.name.toLowerCase().includes('female') ||
-        v.name.toLowerCase().includes('zira') ||
-        v.name.toLowerCase().includes('samantha') ||
-        v.name.toLowerCase().includes('karen')
+        v.name.toLowerCase().includes('martha') ||
+        v.name.toLowerCase().includes('samantha')
       );
 
       setVoices(englishVoices);
