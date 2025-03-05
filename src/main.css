@@ -668,3 +668,146 @@ ul li::before {
     text-shadow: 4px 4px 8px rgba(155, 89, 182, 0.6);
   }
 }
+
+/* ===== TALK COMPONENTS ===== */
+
+/* Talk Container */
+.talk-container {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.talk-sidebar {
+  flex: 0 0 300px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  padding: 15px;
+  border: 1px solid var(--cozy-light-brown);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.talk-sidebar__title {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: var(--cozy-dark-green);
+  border-bottom: 2px dashed var(--cozy-light-brown);
+  padding-bottom: 10px;
+}
+
+.talk-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.talk-list li {
+  margin-bottom: 10px;
+}
+
+/* Talk Item */
+.talk-item {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid var(--cozy-light-brown);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.talk-item:hover {
+  background-color: var(--cozy-light-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.talk-item--selected {
+  background-color: var(--cozy-green);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.talk-item--selected .talk-item__title {
+  color: white;
+}
+
+.talk-item__title {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+  color: var(--cozy-dark-green);
+}
+
+.talk-item__category {
+  font-size: 0.8rem;
+  color: var(--cozy-dark-brown);
+}
+
+.talk-item__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.talk-item__tag {
+  background-color: var(--cozy-orange);
+  color: white;
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+}
+
+/* Talk Content */
+.talk-content-container {
+  flex: 1;
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid var(--cozy-light-brown);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.talk-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.talk-content__header {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px dashed var(--cozy-light-brown);
+}
+
+.talk-content__title {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+  color: var(--cozy-dark-green);
+}
+
+.talk-content__category {
+  display: inline-block;
+  background-color: var(--cozy-blue);
+  color: white;
+  border-radius: 10px;
+  padding: 3px 10px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.talk-content__body {
+  line-height: 1.8;
+}
+
+.talk-content-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: var(--cozy-dark-brown);
+  opacity: 0.7;
+}

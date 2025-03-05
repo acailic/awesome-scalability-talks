@@ -1,79 +1,55 @@
-import { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import { useTalksStore } from "../../stores/talksStore";
 import TalkItem from "./TalkItem";
 import TalkContent from "./TalkContent";
 import Spinner from "../Spinner";
 import ErrorMessage from "../ErrorMessage";
-import TagList from "../tag/TagList";
 import { TTalk } from "../../lib/types";
 
 export function TalkList() {
-  const { 
-    talks, 
-    isLoading, 
-    errorMessage, 
-    fetchTalks, 
-    getTagsList,
-    getFilteredTalks,
-    selectTag,
-    selectedTag 
-  } = useTalksStore();
-  const [selectedTalk, setSelectedTalk] = useState<TTalk | null>(null);
+  const [selectedTalkId, setSelectedTalkId] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchTalks();
-  }, [fetchTalks]);
+  // Use useMemo to memoize the selectors
+  const isLoading = useMemo(() => useTalksStore.getState().isLoading, []);
+  const errorMessage = useMemo(() => useTalksStore.getState().errorMessage, []);
+  const talks = useMemo(() => useTalksStore.getState().talks, []);
 
-  const handleTalkClick = (talk: TTalk) => {
-    setSelectedTalk(talk);
+  const handleSelectTalk = (id: string) => {
+    setSelectedTalkId(id);
   };
 
-  const handleBackClick = () => {
-    setSelectedTalk(null);
-  };
-
-  const handleTagClick = (tag: string) => {
-    selectTag(tag === selectedTag ? "" : tag);
-  };
+  const selectedTalk = selectedTalkId
+    ? talks.find(talk => talk.id === selectedTalkId)
+    : null;
 
   if (isLoading) return <Spinner />;
   if (errorMessage) return <ErrorMessage message={errorMessage} />;
 
-  if (selectedTalk) {
-    return (
-      <div className="content-container">
-        <button className="back-button" onClick={handleBackClick}>
-          &larr; Back to Talks
-        </button>
-        <TalkContent talk={selectedTalk} />
-      </div>
-    );
-  }
-
-  const filteredTalks = getFilteredTalks();
-  const allTags = getTagsList();
-
   return (
-    <div className="list-container">
-      <div className="tag-filter">
-        <h3>Filter by Tag</h3>
-        <TagList 
-          tags={allTags} 
-          selectedTag={selectedTag} 
-          onTagClick={handleTagClick} 
-        />
-      </div>
-      <div className="items-list">
-        {filteredTalks.length === 0 ? (
-          <p>No talks found.</p>
-        ) : (
-          filteredTalks.map((talk) => (
-            <TalkItem 
-              key={talk.id} 
-              talk={talk} 
-              onClick={() => handleTalkClick(talk)} 
+    <div className="talk-container">
+      <div className="talk-sidebar">
+        <h2 className="talk-sidebar__title">Scalability Talks</h2>
+
+        <ul className="talk-list">
+          {talks.map((talk) => (
+            <TalkItem
+              key={talk.id}
+              talk={talk}
+              onSelect={() => handleSelectTalk(talk.id)}
+              isSelected={selectedTalkId === talk.id}
             />
-          ))
+          ))}
+        </ul>
+      </div>
+
+      <div className="talk-content-container">
+        {selectedTalk ? (
+          <TalkContent talk={selectedTalk} />
+        ) : (
+          <div className="talk-content-placeholder">
+            <h2>Select a talk to read</h2>
+            <p>Choose a talk from the sidebar to view its content.</p>
+          </div>
         )}
       </div>
     </div>
