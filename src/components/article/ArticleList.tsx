@@ -5,6 +5,7 @@ import { useArticlesStore } from "../../stores/articlesStore";
 import { useState, useMemo } from "react";
 import ArticleContent from "./ArticleContent";
 import { PaginationControls } from "../PaginationControls";
+import { TArticle } from "../../lib/types";
 
 export default function ArticleList() {
   const [selectedArticleId, setSelectedArticleId] = useState<number | null>(null);
@@ -15,10 +16,23 @@ export default function ArticleList() {
   const errorMessage = useArticlesStore(state => state.errorMessage);
   const filteredArticles = useArticlesStore(state => state.getFilteredArticles());
 
-  const totalPages = Math.ceil(filteredArticles.length / 10);
+  // Process articles to match the expected type in components
+  const processedArticles = useMemo(() => {
+    return filteredArticles.map(article => ({
+      id: Number(article.id) || 0,
+      title: article.title,
+      summary: article.content?.substring(0, 100) || "",
+      content: article.content || "",
+      author: article.author || "",
+      publishedDate: article.date || "",
+      tags: article.tags,
+    } as TArticle));
+  }, [filteredArticles]);
+
+  const totalPages = Math.ceil(processedArticles.length / 10);
   const paginatedArticles = useMemo(() =>
-    filteredArticles.slice((page - 1) * 10, page * 10),
-    [filteredArticles, page]
+    processedArticles.slice((page - 1) * 10, page * 10),
+    [processedArticles, page]
   );
 
   const handleSelectArticle = (id: number) => {
@@ -26,7 +40,7 @@ export default function ArticleList() {
   };
 
   const selectedArticle = selectedArticleId
-    ? filteredArticles.find(article => article.id === selectedArticleId)
+    ? processedArticles.find(article => article.id === selectedArticleId)
     : null;
 
   const handlePageChange = (newPage: number) => {
