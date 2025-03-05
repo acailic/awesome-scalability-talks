@@ -24,10 +24,20 @@ export default function Footer() {
       <p>Built with React, TypeScript, and lots of ❤️</p>
       {deploymentInfo.timestamp && (
         <p className="deployment-info">
-          Last deployed: {new Date(deploymentInfo.timestamp).toLocaleDateString()} •
+          Last deployed: {isValidDate(deploymentInfo.timestamp)
+            ? new Date(deploymentInfo.timestamp).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })
+            : 'Invalid date format'} •
           Repository: {deploymentInfo.repository}
         </p>
       )}
     </footer>
   );
+}
+
+function isValidDate(dateString: string) {
+  return !isNaN(Date.parse(dateString));
 }
