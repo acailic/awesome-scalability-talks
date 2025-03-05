@@ -54,6 +54,12 @@ if [ -d "src/react-learning" ]; then
   cp -rf src/react-learning/* dist/src/react-learning/
 fi
 
+## copy deployment-info.txt
+if [ -f "deployment-info.txt" ]; then
+  echo "Copying deployment-info.txt..."
+  cp -f deployment-info.txt dist/
+fi
+
 # Copy talks directory
 if [ -d "src/talks" ]; then
   echo "Copying src/talks directory..."
