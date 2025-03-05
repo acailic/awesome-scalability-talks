@@ -1,5 +1,3 @@
-# Scaling Reliability at Dropbox
-
 ## Introduction
 
 Scott Correa, a Technical Program Manager at Dropbox, discusses the company's journey towards improving reliability and scalability. He emphasizes the importance of being "worthy of trust" in their business model, which revolves around storing and providing access to user data.
