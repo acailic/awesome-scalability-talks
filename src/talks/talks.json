@@ -1,20 +1,6 @@
 [
   {
     "id": "distributed-systems-in-one-lesson",
-    "title": "Tim Berglund's 'Distributed Systems in One Lesson' Talk",
-    "icon": "youtube-logo.png",
-    "fileName": "01-distributed-systems-in-one-lesson.md",
-    "description": "A concise introduction to distributed systems, covering topics like consistency, availability, and scalability.",
-    "tags": [
-      "distributed systems",
-      "consistency",
-      "availability",
-      "scalability"
-    ],
-    "category": "education"
-  },
-  {
-    "id": "distributed-systems-in-one-lesson",
     "title": "Distributed Systems in One Lesson",
     "icon": "youtube-logo.png",
     "fileName": "01-distributed-systems-in-one-lesson.md",
