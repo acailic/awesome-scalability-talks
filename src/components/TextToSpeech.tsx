@@ -25,13 +25,19 @@ export function TextToSpeech({ text }: TextToSpeechProps) {
       const englishVoices = availableVoices.filter(v => v.lang.startsWith('en'));
 
       const preferredVoices = englishVoices.filter(v =>
-        v.name.toLowerCase().includes('martha') ||
-        v.name.toLowerCase().includes('samantha')
+        v.name.toLowerCase().includes('martha')
       );
+
+      const fallbackVoices = preferredVoices.length === 0
+        ? englishVoices.filter(v => v.name.toLowerCase().includes('samantha'))
+        : [];
+
+      const allPreferred = [...preferredVoices, ...fallbackVoices];
 
       setVoices(englishVoices);
 
-      const initialVoice = preferredVoices[0] || englishVoices[0];
+      // Select Martha if available, then Samantha, then first English voice
+      const initialVoice = allPreferred[0] || englishVoices[0];
       setSelectedVoice(initialVoice?.voiceURI || '');
     };
 

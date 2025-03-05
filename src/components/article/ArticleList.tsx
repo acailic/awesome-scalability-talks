@@ -4,14 +4,22 @@ import ErrorMessage from "../ErrorMessage";
 import { useArticlesStore } from "../../stores/articlesStore";
 import { useState, useMemo } from "react";
 import ArticleContent from "./ArticleContent";
+import { PaginationControls } from "../PaginationControls";
 
 export default function ArticleList() {
   const [selectedArticleId, setSelectedArticleId] = useState<number | null>(null);
+  const [page, setPage] = useState(1);
 
   // Use useMemo to memoize the selectors
   const isLoading = useMemo(() => useArticlesStore.getState().isLoading, []);
   const errorMessage = useMemo(() => useArticlesStore.getState().errorMessage, []);
   const filteredArticles = useMemo(() => useArticlesStore.getState().getFilteredArticles(), []);
+
+  const totalPages = Math.ceil(filteredArticles.length / 10);
+  const paginatedArticles = useMemo(() =>
+    filteredArticles.slice((page - 1) * 10, page * 10),
+    [filteredArticles, page]
+  );
 
   const handleSelectArticle = (id: number) => {
     setSelectedArticleId(id);
@@ -21,11 +29,15 @@ export default function ArticleList() {
     ? filteredArticles.find(article => article.id === selectedArticleId)
     : null;
 
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
+    setSelectedArticleId(null); // Reset selection when page changes
+  };
+
   return (
     <div className="article-container">
       <div className="article-sidebar">
         <h2 className="article-sidebar__title">
-
           Talks
         </h2>
 
@@ -33,14 +45,21 @@ export default function ArticleList() {
         {errorMessage && <ErrorMessage message={errorMessage} />}
 
         <ul className="article-list">
-          {filteredArticles.map((article) => (
+          {paginatedArticles.map((article) => (
             <ArticleItem
               key={article.id}
               article={article}
               onSelect={handleSelectArticle}
+              isSelected={selectedArticleId === article.id}
             />
           ))}
         </ul>
+
+        <PaginationControls
+          currentPage={page}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </div>
 
       <div className="article-content-container">
