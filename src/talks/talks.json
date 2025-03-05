@@ -41,5 +41,21 @@
     ],
     "summary": "",
     "keyPoints": []
+  },
+  {
+    "id": "google-distributed-build-system",
+    "title": "Building a Distributed Build System at Google Scale",
+    "icon": "youtube-logo.png",
+    "fileName": "04-building-a-distributed-build-system-at-google-scale-sum.md",
+    "description": "Google's evolution of their distributed build system to support 30,000 engineers working on a monolithic codebase with zero downtime migration.",
+    "tags": [
+      "distributed systems",
+      "build systems",
+      "scalability",
+      "system migration",
+      "architecture"
+    ],
+    "summary": "",
+    "keyPoints": []
   }
 ]
