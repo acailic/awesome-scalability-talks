@@ -52,6 +52,12 @@ export function TextToSpeech({ text }: TextToSpeechProps) {
     setPitch(parseFloat(e.target.value));
   };
 
+  const handleVoiceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newVoiceURI = e.target.value;
+    setSelectedVoice(newVoiceURI);
+    stop();
+  };
+
   return (
     <div className="text-to-speech">
       <div className="text-to-speech-controls">
@@ -76,7 +82,7 @@ export function TextToSpeech({ text }: TextToSpeechProps) {
             Voice:
             <select
               value={selectedVoice}
-              onChange={(e) => setSelectedVoice(e.target.value)}
+              onChange={handleVoiceChange}
               disabled={isPlaying}
             >
               {voices.map(voice => (
