@@ -57,5 +57,22 @@
     ],
     "summary": "",
     "keyPoints": []
+  },
+  {
+    "id": "lessons-of-scale-at-facebook",
+    "title": "Lessons of Scale at Facebook",
+    "icon": "youtube-logo.png",
+    "fileName": "05-lessons-of-scale-at-facebook-sum.md",
+    "description": "Facebook's journey scaling from 7 million to 400 million users, covering both technical challenges of the social graph and organizational approaches to maintaining speed while growing.",
+    "tags": [
+      "scalability",
+      "social graph",
+      "performance optimization", 
+      "engineering culture",
+      "caching",
+      "horizontal scaling"
+    ],
+    "summary": "",
+    "keyPoints": []
   }
 ]
