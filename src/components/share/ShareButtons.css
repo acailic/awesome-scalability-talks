@@ -1,0 +1,14 @@
+.share-buttons {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.share-buttons button {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.share-buttons button:hover {
+  transform: scale(1.1);
+}

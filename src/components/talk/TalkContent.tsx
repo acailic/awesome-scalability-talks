@@ -5,6 +5,8 @@ import Spinner from "../Spinner";
 import ErrorMessage from "../ErrorMessage";
 import { marked } from "marked";
 import TextToSpeech from "../TextToSpeech";
+import ShareButtons from "../share/ShareButtons";
+import "../share/ShareButtons.css";
 
 type TalkContentProps = {
   talk: TTalk;
@@ -49,7 +51,13 @@ export function TalkContent({ talk }: TalkContentProps) {
   return (
     <div className="talk-content">
       <header className="talk-content__header">
-        <h1 className="talk-content__title">{talk.title}</h1>
+        <div className="talk-content__title-container">
+          <h1 className="talk-content__title">{talk.title}</h1>
+          <ShareButtons
+            title={talk.title}
+            url={window.location.href}
+          />
+        </div>
         <div className="talk-content__category">{talk.category}</div>
         {content && <TextToSpeech text={plainTextContent} />}
       </header>

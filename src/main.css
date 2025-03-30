@@ -781,6 +781,12 @@ ul li::before {
   border-bottom: 2px dashed var(--cozy-light-brown);
 }
 
+.talk-content__title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
 .talk-content__title {
   margin: 0 0 10px 0;
   font-size: 2rem;
