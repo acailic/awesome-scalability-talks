@@ -67,12 +67,30 @@
     "tags": [
       "scalability",
       "social graph",
-      "performance optimization", 
+      "performance optimization",
       "engineering culture",
       "caching",
       "horizontal scaling"
     ],
     "summary": "",
     "keyPoints": []
+  },
+  {
+    "id": "scaling-backend-at-youtube",
+    "title": "Scaling the Backend at YouTube: A Journey Through Massive Growth",
+    "description": "An exploration of how YouTube evolved its backend architecture to handle billions of users and massive content growth, with practical lessons on incremental scaling, technology choices, and engineering philosophy.",
+    "tags": [
+      "backend",
+      "scaling",
+      "youtube",
+      "databases",
+      "microservices",
+      "architecture"
+    ],
+    "date": "2023-11-15",
+    "author": "YouTube Engineering Team",
+    "file": "06-scaling-backend-at-youtube-sum.md",
+    "videoUrl": "https://www.youtube.com/watch?v=5yDO-tmIoXY",
+    "readTime": "8 min"
   }
 ]
