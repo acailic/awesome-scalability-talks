@@ -58,6 +58,7 @@ export function TalkContent({ talk }: TalkContentProps) {
             title={talk.title}
             url={generateTalkShareUrl(talk.id)}
             summary={talk.description}
+            source="Awesome Scalability Talks"
           />
         </div>
         <div className="talk-content__category">{talk.category}</div>
