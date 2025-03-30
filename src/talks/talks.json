@@ -92,5 +92,38 @@
     "file": "06-scaling-backend-at-youtube-sum.md",
     "videoUrl": "https://www.youtube.com/watch?v=5yDO-tmIoXY",
     "readTime": "8 min"
+  },
+  {
+    "id": "scaling-twitter-distributed-systems",
+    "title": "Scaling Twitter's Distributed Systems: Engineering for the World's Conversation",
+    "icon": "youtube-logo.png",
+    "fileName": "09-scaling-twitters-distributed-systems-sum.md",
+    "description": "Twitter's evolution from a simple Ruby on Rails application to a sophisticated distributed system capable of handling hundreds of millions of users and sudden traffic spikes.",
+    "tags": [
+      "distributed systems",
+      "scalability",
+      "service-oriented architecture",
+      "caching",
+      "real-time processing"
+    ],
+    "summary": "",
+    "keyPoints": []
+  },
+  {
+    "id": "scaling-slack-real-time-messaging",
+    "title": "Scaling Slack's Real-Time Messaging System: Engineering for Instant Communication",
+    "icon": "youtube-logo.png",
+    "fileName": "12-scaling-slacks-real-time-messaging-system-sum.md",
+    "description": "How Slack built and scaled their real-time messaging infrastructure to support millions of users with instant message delivery and years of searchable conversation history.",
+    "tags": [
+      "real-time systems",
+      "messaging",
+      "scalability",
+      "caching",
+      "operational visibility",
+      "graceful degradation"
+    ],
+    "summary": "",
+    "keyPoints": []
   }
 ]
