@@ -1,5 +1,7 @@
 import React from 'react';
 import { LinkedinShareButton, LinkedinIcon } from 'react-share';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 
 type ShareButtonsProps = {
   title: string;
@@ -23,6 +25,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title, url, summary, source
         source={source}
       >
         <div className="share-button-content">
+          <FontAwesomeIcon icon={faShareAlt} style={{ marginRight: '5px', fontSize: '16px' }} />
           <LinkedinIcon size={32} round />
           <span className="share-text"> Share </span>
         </div>
