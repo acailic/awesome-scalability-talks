@@ -94,6 +94,39 @@
     "readTime": "8 min"
   },
   {
+    "id": "scaling-databases-at-facebook",
+    "title": "Scaling Databases at Facebook: Engineering Through Hypergrowth",
+    "icon": "youtube-logo.png",
+    "fileName": "07-scaling-databases-at-facebook-sum.md",
+    "description": "Facebook's journey in scaling database systems to handle billions of users, trillions of rows, and petabytes of data while maintaining millisecond response times.",
+    "tags": [
+      "databases",
+      "scalability",
+      "sharding",
+      "caching",
+      "mysql",
+      "performance optimization"
+    ],
+    "summary": "",
+    "keyPoints": []
+  },
+  {
+    "id": "building-resilient-systems-at-netflix",
+    "title": "Building Resilient Systems at Netflix: Embracing Chaos in the Cloud",
+    "icon": "youtube-logo.png",
+    "fileName": "08-building-resilient-systems-at-netflix-sum.md",
+    "description": "Netflix's approach to building resilient systems through chaos engineering, microservices architecture, and designing for failure in cloud environments.",
+    "tags": [
+      "resilience",
+      "chaos engineering",
+      "microservices",
+      "cloud architecture",
+      "fault tolerance"
+    ],
+    "summary": "",
+    "keyPoints": []
+  },
+  {
     "id": "scaling-twitter-distributed-systems",
     "title": "Scaling Twitter's Distributed Systems: Engineering for the World's Conversation",
     "icon": "youtube-logo.png",
@@ -105,6 +138,39 @@
       "service-oriented architecture",
       "caching",
       "real-time processing"
+    ],
+    "summary": "",
+    "keyPoints": []
+  },
+  {
+    "id": "scaling-spotify-music-streaming",
+    "title": "Scaling Spotify's Music Streaming Service: Engineering for 400+ Million Listeners",
+    "icon": "youtube-logo.png",
+    "fileName": "10-scaling-spotifys-music-streaming-service-sum.md",
+    "description": "How Spotify evolved from a peer-to-peer architecture to a global streaming platform capable of delivering millions of songs with millisecond latency to hundreds of millions of users.",
+    "tags": [
+      "streaming",
+      "microservices",
+      "content delivery",
+      "caching",
+      "low latency",
+      "recommendation systems"
+    ],
+    "summary": "",
+    "keyPoints": []
+  },
+  {
+    "id": "scaling-shopify-ecommerce",
+    "title": "Scaling Shopify's E-commerce Platform: Engineering for Global Commerce",
+    "icon": "youtube-logo.png",
+    "fileName": "11-scaling-shopifys-ecommerce-platform-sum.md",
+    "description": "Shopify's journey in building a platform that powers over a million online stores, handling billions in transactions and massive traffic spikes during flash sales and Black Friday.",
+    "tags": [
+      "e-commerce",
+      "multi-tenant architecture",
+      "flash sales",
+      "data partitioning",
+      "global edge network"
     ],
     "summary": "",
     "keyPoints": []
@@ -122,6 +188,55 @@
       "caching",
       "operational visibility",
       "graceful degradation"
+    ],
+    "summary": "",
+    "keyPoints": []
+  },
+  {
+    "id": "scaling-pinterest",
+    "title": "Scaling Pinterest to 250 Million Monthly Users: A Visual Journey",
+    "icon": "youtube-logo.png",
+    "fileName": "14-scaling-pinterest-to-250-million-monthly-users-sum.md",
+    "description": "Pinterest's evolution from a simple stack to a sophisticated platform capable of storing and serving billions of images while providing personalized recommendations to hundreds of millions of users.",
+    "tags": [
+      "image storage",
+      "sharded databases",
+      "service-oriented architecture",
+      "content delivery",
+      "recommendation systems"
+    ],
+    "summary": "",
+    "keyPoints": []
+  },
+  {
+    "id": "scaling-uber-real-time-market",
+    "title": "Scaling Uber's Real-Time Market Platform: Engineering at Global Scale",
+    "icon": "youtube-logo.png",
+    "fileName": "15-scaling-ubers-real-time-market-platform-sum.md",
+    "description": "How Uber built a system to match millions of riders with drivers in real-time across hundreds of cities worldwide, calculating dynamic prices and ETAs within milliseconds.",
+    "tags": [
+      "real-time systems",
+      "microservices",
+      "geospatial indexing",
+      "dynamic pricing",
+      "distributed systems"
+    ],
+    "summary": "",
+    "keyPoints": []
+  },
+  {
+    "id": "scaling-airbnb-payment-platform",
+    "title": "Scaling Airbnb's Payment Platform: Building Trust Through Technology",
+    "icon": "youtube-logo.png",
+    "fileName": "16-scaling-airbnbs-payment-platform-sum.md",
+    "description": "Airbnb's journey in building a global payment system that handles transactions in 190+ countries, supports 70+ currencies, and processes billions of dollars annually while navigating complex regulations.",
+    "tags": [
+      "payments",
+      "financial systems",
+      "regulatory compliance",
+      "fraud detection",
+      "international transactions",
+      "currency exchange"
     ],
     "summary": "",
     "keyPoints": []
