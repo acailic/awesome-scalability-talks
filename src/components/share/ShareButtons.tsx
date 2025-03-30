@@ -27,7 +27,6 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title, url, summary, source
         <div className="share-button-content">
           <FontAwesomeIcon icon={faShareAlt} style={{ marginRight: '5px', fontSize: '16px' }} />
           <LinkedinIcon size={32} round />
-          <span className="share-text"> Share </span>
         </div>
       </LinkedinShareButton>
     </div>
