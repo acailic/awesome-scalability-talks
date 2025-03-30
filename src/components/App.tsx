@@ -3,6 +3,8 @@ import Footer from "./layout/Footer";
 import { useArticlesStore } from "../stores/articlesStore";
 import { useDocumentationStore } from "../stores/documentationStore";
 import { useTalksStore } from "../stores/talksStore";
+import { useTabStore } from "../stores/tabStore";
+import { TAB } from "../stores/tabs";
 import { useEffect, useCallback } from "react";
 
 function App() {

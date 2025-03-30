@@ -7,6 +7,7 @@ import { marked } from "marked";
 import TextToSpeech from "../TextToSpeech";
 import ShareButtons from "../share/ShareButtons";
 import "../share/ShareButtons.css";
+import { generateTalkShareUrl } from "../../utils/shareUtils";
 
 type TalkContentProps = {
   talk: TTalk;
@@ -55,7 +56,8 @@ export function TalkContent({ talk }: TalkContentProps) {
           <h1 className="talk-content__title">{talk.title}</h1>
           <ShareButtons
             title={talk.title}
-            url={window.location.href}
+            url={generateTalkShareUrl(talk.id)}
+            summary={talk.description}
           />
         </div>
         <div className="talk-content__category">{talk.category}</div>
